@@ -1,22 +1,47 @@
 module.exports = {
-  extends: ['eslint:recommended', 'plugin:prettier/recommended'],
+  parser: 'babel-eslint',
+  extends: ['airbnb', 'plugin:prettier/recommended'],
   env: {
     browser: true,
-    node: true,
-    es6: true
+    jest: true,
   },
-  plugins: ['prettier'],
+  plugins: ['react', 'jsx-a11y', 'import', 'prettier'],
   rules: {
-    // 'no-undef':1,
-    'quotes': ["error", "single", { "avoidEscape": true }],
-    'quote-props': ["error", "as-needed", { "keywords": true, "unnecessary": false }],
+    'max-len': ['error', 100],
+    'no-underscore-dangle': ['error', { allow: ['_id'] }],
+    'no-mixed-operators': 'off',
+    'prefer-destructuring': [
+      'error',
+      {
+        VariableDeclarator: {
+          array: false,
+          object: true,
+        },
+        AssignmentExpression: {
+          array: true,
+          object: false,
+        },
+      },
+      {
+        enforceForRenamedProperties: false,
+      },
+    ],
+    'import/prefer-default-export': 'off',
+    'jsx-a11y/anchor-is-valid': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'react/jsx-filename-extension': [
+      'error',
+      {
+        extensions: ['.js'],
+      },
+    ],
     'prettier/prettier': [
       'error',
       {
         singleQuote: true,
-        trailingComma: 'es5',
+        trailingComma: 'all',
         arrowParens: 'always',
-        printWidth: 80,
+        printWidth: 100,
       },
     ],
   },
