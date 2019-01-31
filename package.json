@@ -4,25 +4,29 @@
     "now-build": "next build && next export -o dist"
   },
   "dependencies": {
+    "@zeit/next-sass": "^1.0.1",
     "next": "latest",
+    "node-sass": "^4.11.0",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "postcss": "^7.0.14",
+    "autoprefixer": "^9.4.7"
   },
   "devDependencies": {
+    "babel-eslint": "^8.2.5",
     "chai": "*",
     "chai-asserttype": "*",
     "coveralls": "*",
     "eslint": "^5.10.0",
+    "eslint-config-airbnb": "^17.0.0",
     "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-react": "^7.10.0",
     "mocha": "*",
     "nodemon": "^1.18.9",
     "nyc": "*",
-    "prettier": "^1.15.3",
-    "babel-eslint": "^8.2.5",
-    "eslint-config-airbnb": "^17.0.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.10.0"
+    "prettier": "^1.15.3"
   }
 }

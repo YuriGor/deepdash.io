@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import '../scss/styles.scss';
 
 export default () => (
   <header>
@@ -6,6 +7,6 @@ export default () => (
       <title>Deepdash - traversal extension for Lodash</title>
       <link rel="icon" type="image/png" href="/favicon.png" />
     </Head>
-    <h1>Static Next.js Example on Now 2.0</h1>
+    <h1>Deepdash</h1>
   </header>
 );

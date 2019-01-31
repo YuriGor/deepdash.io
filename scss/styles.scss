@@ -1,0 +1,230 @@
+@mixin fit-parent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.fit-parent {
+  @include fit-parent();
+}
+
+html{
+  @include fit-parent();
+  background-color:#001d36;
+  color:#FFF;
+  box-shadow: 0 0 50vw #00315a inset;
+}
+a {
+  color:#08A;
+}
+header {
+  height: 300px;
+  position:relative;
+  h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin:0;
+    font-size:48px;
+    color:#f8e686;
+    text-align:center;
+  }
+}
+
+.clear{
+  clear:both;
+}
+.nowrap {
+  white-space: nowrap;
+}
+
+.mirror-icon:before {
+  display: inline-block;
+  transform: scale( -1, 1);
+}
+
+@mixin overflow-deep($mode:visible) {
+  overflow: $mode;
+  div,span, table, td {
+    overflow: $mode;
+  }
+}
+
+.overflow-visible {
+  @include overflow-deep();
+}
+
+.overflow-hidden {
+  @include overflow-deep(hidden);
+}
+
+.overflow-scroll {
+  @include overflow-deep(scroll);
+}
+
+
+.overflow-auto {
+  @include overflow-deep(auto);
+}
+
+.no-padding {
+  padding: 0;
+  div, span {
+    padding: 0;
+  }
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+@each $angle in 45deg, 90deg, 135deg, 180deg, 225deg, 270deg, 315deg {
+  .rotate-#{$angle} {
+    transform: rotate($angle);
+  }
+}
+
+.transparent {
+  background-color:transparent;
+  div,span {
+    background-color:transparent;
+  }
+}
+
+
+@keyframes blinkframes {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@mixin blink {
+  animation: blinkframes 1s linear 0s infinite alternate;
+}
+
+
+.blink {
+  @include blink;
+}
+
+.blink-twice {
+  animation: blinkframes 0.5s linear 0s 2 alternate;
+}
+
+@mixin blink-slow {
+  animation: blinkframes 2s linear 0s infinite alternate;
+}
+
+
+@keyframes float-deep-frames {
+    0% {
+      text-shadow: 0 0 25px rgba(gold,0.4);
+      opacity: 0.6;
+      transform: perspective(500px) translate3d(-50%, -50%, -15px);
+    }
+    100% {
+      
+      text-shadow: 0 0 2px rgba(gold,0.4);
+      opacity: 1;
+      transform: perspective(500px) translate3d(-50%, -50%, 0);
+    }
+};
+
+@mixin float-deep {
+  animation: float-deep-frames 5s ease 0s infinite alternate;
+}
+
+/// Vertically centers the element inside of its first non-static parent,
+/// @link http://www.sitepoint.com/centering-with-sass/ Centering With Sass
+@mixin vertical-center {
+  position: absolute;
+  top: 50%!important;
+  transform: translateY(-50%);
+}
+
+.vertical-center {
+  @include vertical-center();
+}
+
+/// Horizontally centers the element inside of its first non-static parent,
+/// @link http://www.sitepoint.com/centering-with-sass/ Centering With Sass
+@mixin horizontal-center {
+  position: absolute;
+  left: 50%!important;
+  transform: translateX(-50%);
+}
+
+.horizontal-center {
+  @include horizontal-center();
+}
+
+
+/// Absolutely centers the element inside of its first non-static parent,
+/// @link http://www.sitepoint.com/centering-with-sass/ Centering With Sass
+@mixin absolute-center($scale:1) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale($scale);
+}
+
+.absolute-center {
+  @include absolute-center();
+}
+
+header h1 {
+  @include float-deep();
+}
+
+
+@mixin fancybox-close() {
+  color: black;
+  background-color: white;
+  font: normal normal normal 25px/1 FontAwesome;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  position: absolute;
+  top: -12px;
+  right: -10px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  z-index: 40000;
+  display: block;
+  border-radius: 50%;
+  text-align: center;
+  box-shadow: -3px 3px 5px rgba(#000,0.6);
+  &:before {
+    box-sizing: border-box;
+    content: "\f057";
+  }
+  &:hover {
+    box-shadow: -4px 4px 6px rgba(#000,0.5);
+  }
+}
+.fancybox-close {
+  @include fancybox-close();
+}
+
+
+.noselect {
+  user-select: none;
+}
+
+.noevents{
+  pointer-events: none;
+}
+.noshadow {
+  box-shadow:none!important;
+}
+
+
+
