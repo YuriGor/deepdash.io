@@ -1,6 +1,7 @@
 {
   "version": 2,
   "name": "deepdash.io",
+  "alias": ["deepdash.io", "www.deepdash.io"],
   "builds": [
   	{ "src": "package.json", "use": "@now/static-build" }
   ]
