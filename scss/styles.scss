@@ -11,15 +11,18 @@
 }
 
 html{
-  @include fit-parent();
-  background-color:#001d36;
   color:#FFF;
-  box-shadow: 0 0 50vw #00315a inset;
+}
+body {
+  margin:0;
 }
 a {
   color:#08A;
 }
 header {
+  background-color:#001d36;
+  background-image: url("/static/sand.png");
+  box-shadow: 0 0 20vw 0 #00457e inset;
   height: 300px;
   position:relative;
   h1 {
@@ -27,9 +30,16 @@ header {
     top: 50%;
     left: 50%;
     margin:0;
-    font-size:48px;
-    color:#f8e686;
+    font-size:10vw;
+    line-height: 0.6;
+    font-family:sans-serif;
+    color:#FFF;
     text-align:center;
+    span {
+      display: block;
+      font-weight: normal;
+      text-align: left;
+    }
   }
 }
 
@@ -126,15 +136,14 @@ header {
 
 @keyframes float-deep-frames {
     0% {
-      text-shadow: 0 0 25px rgba(gold,0.4);
-      opacity: 0.6;
-      transform: perspective(500px) translate3d(-50%, -50%, -15px);
+      filter: drop-shadow(0 0 0 rgba(#FFF,0.3)) drop-shadow(5vw 5vw 1.5vw rgba(#000,0.6));
+      opacity: 1;
+      transform: perspective(500px) translate3d(-50%, -50%, 0px);
     }
     100% {
-      
-      text-shadow: 0 0 2px rgba(gold,0.4);
-      opacity: 1;
-      transform: perspective(500px) translate3d(-50%, -50%, 0);
+      filter: drop-shadow(0 0 35px rgba(#FFF,0.4)) drop-shadow(4vw 4vw 1vw rgba(#000,0.8));
+      opacity: 0.6;
+      transform: perspective(500px) translate3d(-50%, -50%, -16px);
     }
 };
 

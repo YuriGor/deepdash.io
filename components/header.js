@@ -7,6 +7,8 @@ export default () => (
       <title>Deepdash - traversal extension for Lodash</title>
       <link rel="icon" type="image/png" href="/favicon.png" />
     </Head>
-    <h1>Deepdash</h1>
+    <h1>
+      <img src="/static/deepdash.full.svg" alt="Deepdash logo" />
+    </h1>
   </header>
 );
