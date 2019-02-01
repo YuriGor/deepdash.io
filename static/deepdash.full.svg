@@ -16,63 +16,6 @@
    id="svg8"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
    sodipodi:docname="deepdash.full.svg">
-  <defs
-     id="defs2" />
-  <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="1.4142136"
-     inkscape:cx="254.55305"
-     inkscape:cy="115.23278"
-     inkscape:document-units="px"
-     inkscape:current-layer="flowRoot815"
-     showgrid="false"
-     units="px"
-     inkscape:pagecheckerboard="true"
-     showguides="true"
-     inkscape:guide-bbox="true"
-     inkscape:window-width="1600"
-     inkscape:window-height="847"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="1">
-    <sodipodi:guide
-       position="0,26.449661"
-       orientation="1,0"
-       id="guide852"
-       inkscape:locked="false" />
-    <sodipodi:guide
-       position="-14.022917,39.687501"
-       orientation="0,1"
-       id="guide854"
-       inkscape:locked="false" />
-    <sodipodi:guide
-       position="158.75104,8.5968914"
-       orientation="1,0"
-       id="guide856"
-       inkscape:locked="false" />
-    <sodipodi:guide
-       position="20.018488,31.992163"
-       orientation="1,0"
-       id="guide860"
-       inkscape:locked="false" />
-  </sodipodi:namedview>
-  <metadata
-     id="metadata5">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
@@ -98,7 +41,7 @@
          d="m 13.699348,66.355699 h 58.774414 v 7.875 H 13.699348 Z"
          id="path864" />
       <path
-         style="font-size:96px;line-height:0.54000002;fill:#5134ff;stroke-width:0.98896176;fill-opacity:1"
+         style="font-size:96px;line-height:0.54000002;fill:#3492ff;stroke-width:0.98896176;fill-opacity:1"
          d="m 72.473762,80.746324 v 8.390625 q -4.813817,3.65625 -8.939946,5.296875 -4.080283,1.59375 -8.527333,1.59375 -5.043046,0 -11.736544,-2.765625 l -0.77938,-0.328125 q -0.275076,-0.09375 -0.962764,-0.375 -7.106111,-2.859375 -11.415623,-2.859375 -4.034437,0 -7.977183,1.78125 -3.942745,1.78125 -8.435641,5.71875 v -8.390625 q 4.813817,-3.65625 8.8941,-5.25 4.126129,-1.640625 8.573179,-1.640625 5.043047,0 11.78239,2.765625 0.504305,0.234375 0.733534,0.328125 0.275076,0.09375 0.962764,0.375 7.106111,2.859375 11.415623,2.859375 3.942746,0 7.793799,-1.734375 3.8969,-1.78125 8.619025,-5.765625 z"
          id="path841" />
     </g>
