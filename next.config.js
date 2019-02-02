@@ -4,6 +4,7 @@ const { join } = require('path');
 const { promisify } = require('util');
 
 const copyFile = promisify(fs.copyFile);
+// const withMDX = require('@zeit/next-mdx')();
 
 module.exports = withSass({
   async exportPathMap(defaultPathMap, { dev, dir, outDir, distDir, buildId }) {

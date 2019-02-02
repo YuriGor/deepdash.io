@@ -1,19 +1,30 @@
 {
   "scripts": {
-    "dev": "next",
-    "now-build": "next build && next export -o dist"
+    "dev": "npm run clear:babel-cache && next",
+    "now-build": "next build && next export -o dist",
+    "clear:babel-cache": "rimraf -rf ./node_modules/.cache/babel-loader/*"
   },
   "dependencies": {
+    "@material-ui/core": "^3.9.1",
+    "@material-ui/icons": "^3.0.2",
     "@zeit/next-sass": "^1.0.1",
     "autoprefixer": "^9.4.7",
+    "jss": "latest",
     "next": "latest",
     "node-sass": "^4.11.0",
+    "nprogress": "^0.2.0",
     "postcss": "^7.0.14",
+    "prop-types": "^15.6.2",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "react-jss": "^8.1.0",
+    "remark": "^10.0.1",
+    "remark-react": "^5.0.1"
   },
   "devDependencies": {
+    "@zeit/next-mdx": "^1.2.0",
     "babel-eslint": "^8.2.5",
+    "babel-plugin-preval": "^3.0.1",
     "chai": "*",
     "chai-asserttype": "*",
     "coveralls": "*",

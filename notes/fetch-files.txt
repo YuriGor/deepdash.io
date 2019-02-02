@@ -1,0 +1,15 @@
+
+To use fs at runtime, take a look at https://github.com/zeit/ncc/issues/216
+You can also load the files with import.
+
+
+
+You can use the babel preval plugin.
+
+const postFileNames =
+  preval`
+module.exports = require("fs").readdirSync("./posts")
+` || []
+
+9:06pm
+In this case posts folder is in the same folder as pages folder
