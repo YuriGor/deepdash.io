@@ -1,10 +1,5 @@
-<img src="/static/deepdash.svg" width="64px">
-
 ## Deepdash
 Looking for eachDeep, filterDeep, omitDeep, keysDeep etc? Tree traversal extension for Lodash.
-
-[![Known Vulnerabilities](https://snyk.io/test/npm/deepdash/badge.svg)](https://snyk.io/test/npm/deepdash) [![Travis (.org)](https://api.travis-ci.org/YuriGor/deepdash.svg?branch=master)](https://travis-ci.org/YuriGor/deepdash) [![Coverage Status](https://coveralls.io/repos/github/YuriGor/deepdash/badge.svg?branch=master)](https://coveralls.io/github/YuriGor/deepdash?branch=master) <br>
-[![NPM](https://nodei.co/npm/deepdash.png?compact=true)](https://nodei.co/npm/deepdash/)
 
 ## Methods
 

@@ -2,9 +2,13 @@ import Link from 'next/link';
 import React from 'react';
 import PropTypes from 'prop-types';
 import remark from 'remark';
+import html from 'remark-html';
 import remark2react from 'remark-react';
-import Header from '../components/header';
-import SearchAppBar from '../components/searchAppBar';
+import toc from 'remark-toc';
+import slug from 'remark-slug';
+import WithLayout from '../lib/withLayout';
+
+const highlight = require('remark-highlight.js');
 
 const mdMain = preval`
       const fs = require('fs')
@@ -31,44 +35,32 @@ class Index extends React.Component {
   }
 
   static async getInitialProps({ req, query }) {
-    // const { bookSlug, chapterSlug } = query;
-
-    // const headers = {};
-    // if (req && req.headers && req.headers.cookie) {
-    //   headers.cookie = req.headers.cookie;
-    // }
-    // if (req) {
-    //   const { getTestMd } = require('../lib/api/static');
-    //   const md = await getTestMd();
-    //   console.log('getInitialProps', md);
-    // }
-    // const book = await getChapterDetail({ bookSlug, chapterSlug }, { headers });
     return { md: mdMain };
   }
 
   render() {
     const { md } = this.state;
     return (
-      <main>
-        <Header />
-        <SearchAppBar />
-        <section>
-          <Link href="/about">
-            <a>Go to About Me (test Now For GitHub deployment)</a>
-          </Link>
-        </section>
-        <section>
-          <div>
-            {
-              remark()
-                .use(remark2react)
-                .processSync(md).contents
-            }
-          </div>
-        </section>
-      </main>
+      // {/* <section> */}
+      // {/*   <Link href="/about"> */}
+      // {/*     <a>Go to About Me (test Now For GitHub deployment)</a> */}
+      // {/*   </Link> */}
+      // {/* </section> */}
+      <section>
+        <div>
+          {
+            remark()
+              // .use(highlight)
+              // .use(html)
+              .use(slug)
+              .use(toc)
+              .use(remark2react)
+              .processSync(md).contents
+          }
+        </div>
+      </section>
     );
   }
 }
 
-export default Index;
+export default WithLayout(Index);

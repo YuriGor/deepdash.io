@@ -1,0 +1,178 @@
+@import '../node_modules/include-media/dist/_include-media.scss';
+
+$breakpoints: (
+  'sm': 600px,
+  'md': 960px,
+  'lg': 1280px,
+  'xl': 1920px
+);
+
+$drawerWidth: 240px;
+
+html{
+  // color:#FFF;
+}
+body {
+  margin:0;
+}
+a {
+  color:#08A;
+}
+
+.clear{
+  clear:both;
+}
+.nowrap {
+  white-space: nowrap;
+}
+
+.mirror-icon:before {
+  display: inline-block;
+  transform: scale( -1, 1);
+}
+
+.no-padding {
+  padding: 0;
+  div, span {
+    padding: 0;
+  }
+}
+
+.pointer {
+  cursor: pointer;
+}
+.transparent {
+  background-color:transparent;
+  div,span {
+    background-color:transparent;
+  }
+}
+
+.noselect {
+  user-select: none;
+}
+
+.noevents{
+  pointer-events: none;
+}
+.noshadow {
+  box-shadow:none!important;
+}
+
+@mixin fit-parent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.fit-parent {
+  @include fit-parent();
+}
+
+
+@mixin overflow-deep($mode:visible) {
+  overflow: $mode;
+  div,span, table, td {
+    overflow: $mode;
+  }
+}
+
+.overflow-visible {
+  @include overflow-deep();
+}
+
+.overflow-hidden {
+  @include overflow-deep(hidden);
+}
+
+.overflow-scroll {
+  @include overflow-deep(scroll);
+}
+
+
+.overflow-auto {
+  @include overflow-deep(auto);
+}
+
+
+
+@each $angle in 45deg, 90deg, 135deg, 180deg, 225deg, 270deg, 315deg {
+  .rotate-#{$angle} {
+    transform: rotate($angle);
+  }
+}
+
+
+
+@keyframes blinkframes {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@mixin blink {
+  animation: blinkframes 1s linear 0s infinite alternate;
+}
+
+
+.blink {
+  @include blink;
+}
+
+.blink-twice {
+  animation: blinkframes 0.5s linear 0s 2 alternate;
+}
+
+@mixin blink-slow {
+  animation: blinkframes 2s linear 0s infinite alternate;
+}
+
+/// Vertically centers the element inside of its first non-static parent,
+/// @link http://www.sitepoint.com/centering-with-sass/ Centering With Sass
+@mixin vertical-center {
+  position: absolute;
+  top: 50%!important;
+  transform: translateY(-50%);
+}
+
+.vertical-center {
+  @include vertical-center();
+}
+
+/// Horizontally centers the element inside of its first non-static parent,
+/// @link http://www.sitepoint.com/centering-with-sass/ Centering With Sass
+@mixin horizontal-center {
+  position: absolute;
+  left: 50%!important;
+  transform: translateX(-50%);
+}
+
+.horizontal-center {
+  @include horizontal-center();
+}
+
+
+/// Absolutely centers the element inside of its first non-static parent,
+/// @link http://www.sitepoint.com/centering-with-sass/ Centering With Sass
+@mixin absolute-center($scale:1) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale($scale);
+}
+
+.absolute-center {
+  @include absolute-center();
+}
+
+
+
+

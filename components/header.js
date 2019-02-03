@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import '../scss/styles.scss';
+import './header.scss';
 
 export default () => (
   <header className="logo">
