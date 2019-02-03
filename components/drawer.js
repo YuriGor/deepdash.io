@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 // import Drawer from '@material-ui/core/Drawer';
 // import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
@@ -17,6 +16,7 @@ const styles = (theme) => ({
     position: 'fixed',
     // float: 'left',
     overflow: 'visible',
+    backgroundColor: theme.palette.background.default,
     top: 0,
     left: 0,
     bottom: 0,
