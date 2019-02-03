@@ -1,3 +1,4 @@
+import '../scss/markdown.scss';
 import Link from 'next/link';
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -40,6 +41,7 @@ class Index extends React.Component {
 
   render() {
     const { md } = this.state;
+    const { classes } = this.props;
     return (
       // {/* <section> */}
       // {/*   <Link href="/about"> */}
@@ -47,7 +49,7 @@ class Index extends React.Component {
       // {/*   </Link> */}
       // {/* </section> */}
       <section>
-        <div>
+        <div className="markdown">
           {
             remark()
               // .use(highlight)
