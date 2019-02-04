@@ -1,9 +1,9 @@
 .markdown {
   pre {
+    display:inline-block;
+    max-width: 100%;
     overflow: auto;
-  }
-  pre {
-    box-shadow: -3px 3px 25px #000,0px 0px 20px #001e36 inset;
+    box-shadow: 3px 3px 25px #000,0px 0px 20px #001e36 inset;
     border: 1px solid #001e36;
     background: #192e40;
     color:white;
@@ -12,8 +12,44 @@
   .hljs {
     background: #192e40;
     padding: 0px;
+    overflow: visible;
   }
   .hljs-comment {
-    color: #5eb0f2;
+    color: #3bffcc;
   }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #0078dc;
+    border: 0px none #ffffff;
+    border-radius: 50px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #44aaff;
+  }
+  ::-webkit-scrollbar-thumb:active {
+    background: #6dbdff;
+  }
+  ::-webkit-scrollbar-track {
+    background: #192e40;
+    border: 0px none #ffffff;
+    border-radius: 50px;
+  }
+  ::-webkit-scrollbar-track:hover {
+    background: #192e40;
+  }
+  ::-webkit-scrollbar-track:active {
+    background: #192e40;
+  }
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
 }
