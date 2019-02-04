@@ -89,7 +89,7 @@ _.eachDeep(obj, (value, key, path, depth, parent, parentKey, parentPath) => {
 });
 ```
 Console:
-```
+```json
 a:object
   b:object  @a
     c:object  @a.b
@@ -145,7 +145,7 @@ _.condense(
   console.log(arr);
 ```
 Console:
-```
+```json
   [ 'a', <1 empty item>, 'c', 'd', 'e' ]
   [ 'a', <1 empty item>, 'c', <1 empty item>, 'e' ]
   [ 'a', 'c', 'e' ]
@@ -172,7 +172,7 @@ _.condenseDeep(
   console.log(obj);
 ```
 Console:
-```
+```json
   { arr: [ 'a', { c: [ 1, 2, 3 ] }, 'e' ] }
 ```
 
@@ -212,7 +212,7 @@ _.eachDeep(
   ,{track:true});
 ```
 Console:
-```
+```json
   Circular reference skipped for 'c' at a.b
 ```
 ### exists
@@ -296,7 +296,7 @@ _.filterDeep(
   console.log(filtrate);
 ```
 Console:
-```
+```json
   { things:
    [ { name: 'another thing',
        good: true,
@@ -339,7 +339,7 @@ _.indexate(
   console.log(index);
 ```
 Console:
-```
+```json
   { 'a.b.c[0]': 1,
     'a.b.c[1]': 2,
     'a.b.c[2]': 3,
@@ -378,7 +378,7 @@ _.omitDeep(
   console.log(paths);
 ```
 Console:
-```
+```json
 { good1: true,
   good2: { good3: true },
   good4: [ { good5: true } ] }
@@ -425,7 +425,7 @@ _.paths(
   console.log(paths);
 ```
 Console:
-```
+```json
   [ 'a',
     'a.b',
     'a.b.c',
@@ -454,7 +454,7 @@ _.pathToString(
   console.log(_.pathToString(['a', 'b', 'c', 'defg', 0, '1', 2.3]));
 ```
 Console:
-```
+```json
   a.b.c.defg[0][1]["2.3"]
 ```
 

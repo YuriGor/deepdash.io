@@ -2,4 +2,18 @@
   pre {
     overflow: auto;
   }
+  pre {
+    box-shadow: -3px 3px 25px #000,0px 0px 20px #001e36 inset;
+    border: 1px solid #001e36;
+    background: #192e40;
+    color:white;
+    padding: 20px;
+  }
+  .hljs {
+    background: #192e40;
+    padding: 0px;
+  }
+  .hljs-comment {
+    color: #5eb0f2;
+  }
 }

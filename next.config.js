@@ -1,3 +1,4 @@
+const withCSS = require('@zeit/next-css');
 const withSass = require('@zeit/next-sass');
 const fs = require('fs');
 const { join } = require('path');
@@ -6,13 +7,15 @@ const { promisify } = require('util');
 const copyFile = promisify(fs.copyFile);
 // const withMDX = require('@zeit/next-mdx')();
 
-module.exports = withSass({
-  async exportPathMap(defaultPathMap, { dev, dir, outDir, distDir, buildId }) {
-    if (dev) {
+module.exports = withCSS(
+  withSass({
+    async exportPathMap(defaultPathMap, { dev, dir, outDir, distDir, buildId }) {
+      if (dev) {
+        return defaultPathMap;
+      }
+      // This will copy robots.txt from your project root into the out directory
+      await copyFile(join(dir, 'favicon.png'), join(outDir, 'favicon.png'));
       return defaultPathMap;
-    }
-    // This will copy robots.txt from your project root into the out directory
-    await copyFile(join(dir, 'favicon.png'), join(outDir, 'favicon.png'));
-    return defaultPathMap;
-  },
-});
+    },
+  }),
+);
