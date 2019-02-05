@@ -1,7 +1,7 @@
-## Deepdash
+# Deepdash
 Looking for eachDeep, filterDeep, omitDeep, keysDeep etc? Tree traversal extension for Lodash.
 
-## Methods
+## Contents
 
 - [condense](#condense) - condense sparse array
 - [condenseDeep](#condensedeep) - condense all the nested arrays
@@ -13,7 +13,7 @@ Looking for eachDeep, filterDeep, omitDeep, keysDeep etc? Tree traversal extensi
 - [paths](#paths-keysdeep) - (keysDeep) get an array of paths
 - [pathToString](#pathtostring) - convert an array to string path (opposite to _.toPath)
 
-### Installation
+# Installation
 In a browser load [script](https://raw.githubusercontent.com/YuriGor/deepdash/master/deepdash.js) after Lodash:
 ```html
 <script src="lodash.js"></script>
@@ -36,7 +36,7 @@ const _ = deepdash(lodash);
 ```
 (thank you [xpare](https://stackoverflow.com/a/53679055/3043073))
 
-### Usage
+# Usage
 
 ```js
 let obj = {
@@ -121,10 +121,12 @@ Chaining works too:
 ```js
   _(obj).eachDeep((value, key, path, depth, parent, parentKey, parentPath) => {/* do */}).value();
 ```
-## Tutorials
+# Tutorials
 [filterDeep,indexate and condenseDeep](http://yurigor.com/deep-filter-js-object-or-array-with-lodash/)
 
-### condense
+# Methods
+
+## condense
 
 Makes sparse array non-sparse. This method mutates object.
 
@@ -151,7 +153,7 @@ Console:
   [ 'a', 'c', 'e' ]
 ```
 
-### condenseDeep
+## condenseDeep
 
 Make all the arrays in the object non-sparse.
 
@@ -176,7 +178,7 @@ Console:
   { arr: [ 'a', { c: [ 1, 2, 3 ] }, 'e' ] }
 ```
 
-### eachDeep (forEachDeep)
+## eachDeep (forEachDeep)
 
 Invokes given callback for each field and element of given object or array, nested too.
 
@@ -215,7 +217,7 @@ Console:
 ```json
   Circular reference skipped for 'c' at a.b
 ```
-### exists
+## exists
 
 Check if path exists in the object considering sparse arrays.
 Alternative for Lodash `has` method, which returns true for empty array slots.
@@ -236,7 +238,7 @@ _.exists(
   _.exists(obj, '[1].a[1]'); // true
 ```
 
-### filterDeep
+## filterDeep
 
 Returns and object with childs of your choice only
 
@@ -306,7 +308,7 @@ Console:
        subItem2: { name: 'sub-item-2', good: true } } ] }
 ```
 
-### indexate
+## indexate
 
 Creates an 'index' flat object with paths as keys and corresponding values.
 
@@ -345,7 +347,7 @@ Console:
     'a.b.c[2]': 3,
     'a.b["hello world"]': {} }
 ```
-### omitDeep
+## omitDeep
 
 returns an object without keys specified as string name or regex
 
@@ -384,7 +386,7 @@ Console:
   good4: [ { good5: true } ] }
 ```
 
-### paths (keysDeep)
+## paths (keysDeep)
 
 Creates an array of the paths of object or array.
 
@@ -440,7 +442,7 @@ Console:
     'a.b.c[2]',
     'a.b["hello world"]' ]
 ```
-### pathToString
+## pathToString
 
 Converts given path from array to string format.
 
@@ -458,5 +460,5 @@ Console:
   a.b.c.defg[0][1]["2.3"]
 ```
 
-### Other traversal methods
+## Other traversal methods
 Feel free [to request](https://github.com/YuriGor/deepdash/issues/new) other methods implementation.

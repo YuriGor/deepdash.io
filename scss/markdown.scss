@@ -18,6 +18,22 @@
     color: #3bffcc;
   }
 
+  @each $hs in 1, 2, 3, 4, 5, 6 {
+    h#{$hs} {
+      a.separate-anchor {
+        position: relative;
+        top:-150px;
+      }
+      a {
+        i.material-icons{
+          transform: translateY(2px + $hs);
+          margin-right: 2px + $hs;
+          font-size: 24px - $hs;
+        }
+      }
+    }
+  }
+
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
