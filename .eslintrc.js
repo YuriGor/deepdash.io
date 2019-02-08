@@ -10,6 +10,7 @@ module.exports = {
     'max-len': ['error', 100],
     'no-underscore-dangle': ['error', { allow: ['_id'] }],
     'no-mixed-operators': 'off',
+    'no-plusplus': 'off',
     'prefer-destructuring': [
       'error',
       {

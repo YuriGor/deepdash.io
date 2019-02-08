@@ -1,8 +1,11 @@
-import '../scss/markdown.scss';
-import Link from 'next/link';
+// import '../scss/markdown.scss';
+// import Link from 'next/link';
 import React from 'react';
 import PropTypes from 'prop-types';
-import WithLayout from '../lib/withLayout';
+import { withStyles } from '@material-ui/styles';
+import classNames from 'classnames';
+import markdown from '../jss/markdown';
+import withLayout from '../lib/withLayout';
 
 const mdMain = preval`
       const remark = require('remark');
@@ -40,13 +43,20 @@ const mdMain = preval`
       module.exports = htm;
     `;
 // console.log(mdMain);
+const styles = (theme) => ({
+  ...markdown,
+});
+
 class Index extends React.Component {
   static propTypes = {
     md: PropTypes.string,
+    classes: PropTypes.object.isRequired,
+    drawerOpen: PropTypes.bool,
   };
 
   static defaultProps = {
-    md: 'Hello\n======\nworld',
+    md: mdMain,
+    drawerOpen: false,
   };
 
   constructor(props) {
@@ -60,14 +70,15 @@ class Index extends React.Component {
   }
 
   static async getInitialProps({ req, query }) {
+    console.log('getInitialProps', mdMain);
     return { md: mdMain };
   }
 
   render() {
     const { md } = this.state;
-    const { classes } = this.props;
+    const { classes, drawerOpen } = this.props;
     const htm = { __html: md };
-    // console.log('html:', htm);
+    console.log('drawerOpen:', drawerOpen, htm);
     return (
       // {/* <section> */}
       // {/*   <Link href="/about"> */}
@@ -75,10 +86,16 @@ class Index extends React.Component {
       // {/*   </Link> */}
       // {/* </section> */}
       <section>
-        <div className="markdown" dangerouslySetInnerHTML={htm} />
+        <div
+          className={classNames(classes.markdown, {
+            [classes.hideContents]: drawerOpen,
+          })}
+          dangerouslySetInnerHTML={htm}
+        />
       </section>
     );
   }
 }
 
-export default WithLayout(Index);
+// export default withLayout(withStyles(styles)(Index));
+export default withLayout(withStyles(styles)(Index));
