@@ -56,7 +56,7 @@ class Index extends React.Component {
 
   static defaultProps = {
     md: mdMain,
-    drawerOpen: false,
+    drawerOpen: true,
   };
 
   constructor(props) {
@@ -78,7 +78,7 @@ class Index extends React.Component {
     const { md } = this.state;
     const { classes, drawerOpen } = this.props;
     const htm = { __html: md };
-    console.log('drawerOpen:', drawerOpen, htm);
+    // console.log('drawerOpen:', drawerOpen, htm);
     return (
       // {/* <section> */}
       // {/*   <Link href="/about"> */}

@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 // import Drawer from '@material-ui/core/Drawer';
 // import Typography from '@material-ui/core/Typography';
+import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
@@ -20,20 +21,24 @@ const styles = (theme) => ({
     top: 0,
     left: 0,
     bottom: 0,
+    boxShadow: '0px 0px 15px rgba(0,0,0,1)',
+  },
+  animated: {
     transition: theme.transitions.create(['transform'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    boxShadow: '0px 0px 15px rgba(0,0,0,1)',
   },
 });
 
 function drawer(props) {
-  const { classes, open, width } = props;
+  const { classes, open, width, instant } = props;
   const shift = open ? 0 : -width;
   return (
     <div
-      className={classes.drawer}
+      className={classNames(classes.drawer, {
+        [classes.animated]: !instant,
+      })}
       style={{ width: `${width}px`, transform: `translate3d(${shift}px,0,0)` }}
     >
       <div className={classes.toolbar} />
@@ -60,10 +65,12 @@ function drawer(props) {
 }
 drawer.defaultProps = {
   open: true,
+  instant: true,
 };
 drawer.propTypes = {
   classes: PropTypes.object.isRequired,
   open: PropTypes.bool,
+  instant: PropTypes.bool,
   width: PropTypes.number.isRequired,
 };
 
