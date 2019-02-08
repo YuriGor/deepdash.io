@@ -13,7 +13,7 @@ const mdMain = preval`
       const toc = require('remark-toc');
       const slug = require('remark-slug');
       const fs = require('fs');
-      var htm = fs.readFileSync(require.resolve(__dirname+'/../markdown/main.md'), 'utf8');
+      var htm = fs.readFileSync(require.resolve(__dirname+'/../markdown/index.md'), 'utf8');
       htm = remark()
       .use(highlight)
       .use(slug)

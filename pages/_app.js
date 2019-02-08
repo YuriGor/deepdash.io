@@ -13,7 +13,7 @@ class MyApp extends App {
     this.pageContext = getPageContext();
   }
 
-  offset(el) {
+  static offset(el) {
     const rect = el.getBoundingClientRect();
 
     const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
@@ -22,17 +22,22 @@ class MyApp extends App {
     return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
   }
 
-  shiftHashScroll() {
+  scrollToHash(hash) {
     const me = this;
-    console.log('shiftHashScroll', location.hash);
-    if (location.hash) {
+    hash = hash || location.hash;
+    console.log('scrollToHash', hash);
+    if (hash) {
       _.delay(() => {
         window.requestAnimationFrame(() => {
-          const elem = document.getElementById(location.hash.substr(1));
+          const elem = document.getElementById(hash.substr(1));
+          console.log('scroll to el:', elem);
           if (elem) {
-            const off = me.offset(elem);
-            console.log('offset', off);
+            const off = MyApp.offset(elem);
+            // console.log('offset', off);
             window.scroll({ behavior: 'smooth', top: off.top - 120 });
+            if (hash !== location.hash) {
+              history.pushState(null, '', hash);
+            }
           }
         });
       }, 10);
@@ -40,13 +45,35 @@ class MyApp extends App {
   }
 
   componentDidMount() {
+    console.log('componentDidMount');
     // Remove the server-side injected CSS.
+    const me = this;
     const jssStyles = document.querySelector('#jss-server-side');
     if (jssStyles && jssStyles.parentNode) {
       jssStyles.parentNode.removeChild(jssStyles);
-      window.addEventListener('hashchange', this.shiftHashScroll.bind(this), false);
-      this.shiftHashScroll();
     }
+    document.addEventListener('click', (event) => {
+      // console.log('a.click', event.target, event.target.closest('a'));
+      const link = event.target.closest('a');
+      if (link) {
+        const href = link.href.split('#');
+        if (href.length > 1) {
+          const currentHref = location.href.split('#');
+          if (currentHref[0] === href[0]) {
+            console.log(`location.${currentHref[0]} === ${href[0]}`);
+            event.preventDefault();
+            event.stopPropagation();
+            me.scrollToHash.bind(me)(`#${href[1]}`);
+          } else {
+            console.log(`location.${currentHref[0]} !== ${href[0]}`);
+          }
+        }
+      }
+    });
+    // window.addEventListener('hashchange', (newURL,oldURL) => {
+    //   me.scrollToHash.bind(me)()
+    // }, false);
+    this.scrollToHash();
   }
 
   render() {

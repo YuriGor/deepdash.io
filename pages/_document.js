@@ -1,7 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Document, { Head, Main, NextScript } from 'next/document';
+import Document, { Head, Main } from 'next/document';
+import { NextScript, FeaturePolyfills } from '@engineerapart/nextscript';
 import flush from 'styled-jsx/server';
+
+const features = [
+  {
+    test: `('closest' in Element.prototype)`,
+    feature: 'Element.prototype.closest',
+  },
+];
 
 class MyDocument extends Document {
   render() {
@@ -28,14 +36,14 @@ class MyDocument extends Document {
         </Head>
         <body>
           <Main />
-          <NextScript />
+          <NextScript features={features} />
         </body>
       </html>
     );
   }
 }
 
-MyDocument.getInitialProps = ctx => {
+MyDocument.getInitialProps = (ctx) => {
   // Resolution order
   //
   // On the server:
@@ -60,8 +68,8 @@ MyDocument.getInitialProps = ctx => {
 
   // Render app and page and get the context of the page with collected side effects.
   let pageContext;
-  const page = ctx.renderPage(Component => {
-    const WrappedComponent = props => {
+  const page = ctx.renderPage((Component) => {
+    const WrappedComponent = (props) => {
       pageContext = props.pageContext;
       return <Component {...props} />;
     };

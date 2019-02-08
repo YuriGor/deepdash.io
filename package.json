@@ -5,6 +5,7 @@
     "clear:babel-cache": "rimraf -rf ./node_modules/.cache/babel-loader/*"
   },
   "dependencies": {
+    "@engineerapart/nextscript": "^1.0.2",
     "@material-ui/core": "^3.9.1",
     "@material-ui/icons": "^3.0.2",
     "@material-ui/styles": "^3.0.0-alpha.9",
@@ -32,22 +33,20 @@
     "remark-toc": "^5.1.1"
   },
   "devDependencies": {
-    "@zeit/next-mdx": "^1.2.0",
-    "babel-eslint": "^8.2.5",
-    "babel-plugin-preval": "^3.0.1",
+    "babel-eslint": "*",
+    "babel-plugin-preval": "*",
     "chai": "*",
     "chai-asserttype": "*",
     "coveralls": "*",
-    "eslint": "^5.10.0",
-    "eslint-config-airbnb": "^17.0.0",
-    "eslint-config-prettier": "^3.3.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-prettier": "^3.0.0",
-    "eslint-plugin-react": "^7.10.0",
+    "eslint": "*",
+    "eslint-config-airbnb": "*",
+    "eslint-config-prettier": "*",
+    "eslint-plugin-import": "*",
+    "eslint-plugin-jsx-a11y": "*",
+    "eslint-plugin-prettier": "*",
+    "eslint-plugin-react": "*",
     "mocha": "*",
-    "nodemon": "^1.18.9",
     "nyc": "*",
-    "prettier": "^1.15.3"
+    "prettier": "*"
   }
 }
