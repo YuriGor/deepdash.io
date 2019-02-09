@@ -1,6 +1,4 @@
 import PropTypes from 'prop-types';
-// import Drawer from '@material-ui/core/Drawer';
-// import Typography from '@material-ui/core/Typography';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
@@ -8,9 +6,24 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
+import InstallIcon from 'mdi-material-ui/ArrowDownBoldHexagonOutline';
+import UseIcon from '@material-ui/icons/PlayCircleOutline';
+import FuncIcon from 'mdi-material-ui/FunctionVariant';
+import CondenseIcon from 'mdi-material-ui/ArrowCollapseHorizontal';
+import CondenseAllIcon from 'mdi-material-ui/ArrowCollapseAll';
+import EachDeepIcon from 'mdi-material-ui/FileTree';
+import ExistsIcon from 'mdi-material-ui/HelpNetworkOutline';
+import FilterIcon from 'mdi-material-ui/FilterOutline';
+import IndexIcon from 'mdi-material-ui/FormatListBulleted';
+import OmitIcon from 'mdi-material-ui/PlaylistRemove';
+import KeysIcon from 'mdi-material-ui/DotsVertical';
+import PathIcon from 'mdi-material-ui/MapMarkerPath';
 
+function ListItemLink(props) {
+  return <ListItem button component="a" {...props} />;
+}
 const styles = (theme) => ({
   drawer: {
     flexShrink: 0,
@@ -29,10 +42,23 @@ const styles = (theme) => ({
       duration: theme.transitions.duration.leavingScreen,
     }),
   },
+  versionLabel: {
+    float: 'left',
+    marginTop: 24,
+    marginLeft: 24,
+  },
+  closeDrawerButton: {
+    margin: 10,
+    marginBottom: 9,
+    textAlign: 'right',
+  },
+  nestedList: {
+    paddingLeft: 20,
+  },
 });
 
 function drawer(props) {
-  const { classes, open, width, instant } = props;
+  const { classes, open, width, instant, toggleDrawerHandler } = props;
   const shift = open ? 0 : -width;
   return (
     <div
@@ -41,24 +67,88 @@ function drawer(props) {
       })}
       style={{ width: `${width}px`, transform: `translate3d(${shift}px,0,0)` }}
     >
-      <div className={classes.toolbar} />
+      <span className={classes.versionLabel}>v1.9.4</span>
+      <div className={classes.closeDrawerButton}>
+        <IconButton onClick={toggleDrawerHandler} aria-label="Close Sidebar">
+          <CloseIcon fontSize="small" />
+        </IconButton>
+      </div>
       <Divider />
       <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        <ListItemLink href="#installation">
+          <ListItemIcon>
+            <InstallIcon />
+          </ListItemIcon>
+          <ListItemText primary="Installation" />
+        </ListItemLink>
+        <ListItemLink href="#usage">
+          <ListItemIcon>
+            <UseIcon />
+          </ListItemIcon>
+          <ListItemText primary="Usage" />
+        </ListItemLink>
+        <ListItemLink href="#methods">
+          <ListItemIcon>
+            <FuncIcon />
+          </ListItemIcon>
+          <ListItemText primary="Methods" />
+        </ListItemLink>
+        <List className={classes.nestedList}>
+          <ListItemLink href="#condense">
+            <ListItemIcon>
+              <CondenseIcon />
+            </ListItemIcon>
+            <ListItemText inset primary="condense" />
+          </ListItemLink>
+          <ListItemLink href="#condensedeep">
+            <ListItemIcon>
+              <CondenseAllIcon />
+            </ListItemIcon>
+            <ListItemText inset primary="condenseDeep" />
+          </ListItemLink>
+          <ListItemLink href="#eachdeep-foreachdeep">
+            <ListItemIcon>
+              <EachDeepIcon />
+            </ListItemIcon>
+            <ListItemText inset primary="(for)eachDeep" />
+          </ListItemLink>
+          <ListItemLink href="#exists">
+            <ListItemIcon>
+              <ExistsIcon />
+            </ListItemIcon>
+            <ListItemText inset primary="exists" />
+          </ListItemLink>
+          <ListItemLink href="#filterdeep">
+            <ListItemIcon>
+              <FilterIcon />
+            </ListItemIcon>
+            <ListItemText inset primary="filterDeep" />
+          </ListItemLink>
+          <ListItemLink href="#indexate">
+            <ListItemIcon>
+              <IndexIcon />
+            </ListItemIcon>
+            <ListItemText inset primary="indexate" />
+          </ListItemLink>
+          <ListItemLink href="#paths-keysdeep">
+            <ListItemIcon>
+              <KeysIcon />
+            </ListItemIcon>
+            <ListItemText inset primary="paths(keysDeep)" />
+          </ListItemLink>
+          <ListItemLink href="#omitdeep">
+            <ListItemIcon>
+              <OmitIcon />
+            </ListItemIcon>
+            <ListItemText inset primary="omitDeep" />
+          </ListItemLink>
+          <ListItemLink href="#pathtostring">
+            <ListItemIcon>
+              <PathIcon />
+            </ListItemIcon>
+            <ListItemText inset primary="pathToString" />
+          </ListItemLink>
+        </List>
       </List>
     </div>
   );
@@ -72,6 +162,7 @@ drawer.propTypes = {
   open: PropTypes.bool,
   instant: PropTypes.bool,
   width: PropTypes.number.isRequired,
+  toggleDrawerHandler: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(drawer);

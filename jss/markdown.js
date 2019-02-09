@@ -1,11 +1,11 @@
 const markdown = {
   hideContents: {
-    '& #contents': {
-      display: 'none',
-      '&+ul': {
-        display: 'none',
-      },
-    },
+    // '& #methods': {
+    //   display: 'none',
+    //   '&+ul': {
+    //     display: 'none',
+    //   },
+    // },
   },
   markdown: {
     '& pre': {
