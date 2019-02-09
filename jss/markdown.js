@@ -10,13 +10,46 @@ const markdown = {
   markdown: {
     '& pre': {
       display: 'inline-block',
-      maxWidth: '100%',
+      maxWidth: 'calc(100% - 48px)',
       overflow: 'auto',
       boxShadow: [[3, 3, 25, '#000'], [0, 0, 20, '#001e36', 'inset']],
-      border: [1, 'solid', '#001e36'],
+      border: [[1, 'solid', '#001e36']],
       background: '#192e40',
       color: '#FFF',
       padding: 20,
+      '&::-webkit-scrollbar': {
+        width: 6,
+        height: 6,
+      },
+      '&::-webkit-scrollbar-button': {
+        width: 0,
+        height: 0,
+      },
+      '&::-webkit-scrollbar-thumb': {
+        background: '#0078dc',
+        border: [[0, 'none', '#ffffff']],
+        borderRadius: 50,
+      },
+      '&::-webkit-scrollbar-thumb:hover': {
+        background: '#44aaff',
+      },
+      '&::-webkit-scrollbar-thumb:active': {
+        background: '#6dbdff',
+      },
+      '&::-webkit-scrollbar-track': {
+        background: '#192e40',
+        border: [[0, 'none', '#ffffff']],
+        borderRadius: 50,
+      },
+      '&::-webkit-scrollbar-track:hover': {
+        background: '#192e40',
+      },
+      '&::-webkit-scrollbar-track:active': {
+        background: '#192e40',
+      },
+      '&::-webkit-scrollbar-corner': {
+        background: 'transparent',
+      },
     },
     '& .hljs': {
       background: '#192e40',
@@ -25,39 +58,6 @@ const markdown = {
     },
     '& .hljs-comment': {
       color: '#3bffcc',
-    },
-    '&::-webkit-scrollbar': {
-      width: 6,
-      height: 6,
-    },
-    '&::-webkit-scrollbar-button': {
-      width: 0,
-      height: 0,
-    },
-    '&::-webkit-scrollbar-thumb': {
-      background: '#0078dc',
-      border: [0, 'none', '#ffffff'],
-      borderRadius: 50,
-    },
-    '&::-webkit-scrollbar-thumb:hover': {
-      background: '#44aaff',
-    },
-    '&::-webkit-scrollbar-thumb:active': {
-      background: '#6dbdff',
-    },
-    '&::-webkit-scrollbar-track': {
-      background: '#192e40',
-      border: [0, 'none', '#ffffff'],
-      borderRadius: 50,
-    },
-    '&::-webkit-scrollbar-track:hover': {
-      background: '#192e40',
-    },
-    '&::-webkit-scrollbar-track:active': {
-      background: '#192e40',
-    },
-    '&::-webkit-scrollbar-corner': {
-      background: 'transparent',
     },
   },
 };
