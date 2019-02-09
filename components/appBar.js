@@ -11,6 +11,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import GithubIcon from 'mdi-material-ui/GithubCircle';
 import NpmIcon from 'mdi-material-ui/NpmVariantOutline';
+import CdnIcon from 'mdi-material-ui/CloudDownloadOutline';
 
 const styles = (theme) => ({
   appBar: {
@@ -81,6 +82,9 @@ function appBar(props) {
         </IconButton>
         <IconButton href="https://www.npmjs.com/package/deepdash" color="inherit">
           <NpmIcon />
+        </IconButton>
+        <IconButton href="https://cdn.jsdelivr.net/npm/deepdash/deepdash.min.js" color="inherit">
+          <CdnIcon />
         </IconButton>
         <div className={classes.grow} />
         <IconButton href="#deepdash" color="inherit">

@@ -13,11 +13,11 @@ Looking for eachDeep, filterDeep, omitDeep, keysDeep etc? Tree traversal extensi
 - [paths](#paths-keysdeep) - (keysDeep) get an array of paths
 - [pathToString](#pathtostring) - convert an array to string path (opposite to _.toPath)
 
-# Installation
-In a browser load [script](https://raw.githubusercontent.com/YuriGor/deepdash/master/deepdash.js) after Lodash:
+### Installation
+In a browser load [script](https://cdn.jsdelivr.net/npm/deepdash/deepdash.min.js) after Lodash:
 ```html
-<script src="lodash.js"></script>
-<script src="deepdash.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lodash/lodash.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/deepdash/deepdash.min.js"></script>
 ```
 Using npm:
 ```
@@ -34,8 +34,6 @@ import lodash from "lodash";
 import deepdash from "deepdash";
 const _ = deepdash(lodash);
 ```
-(thank you [xpare](https://stackoverflow.com/a/53679055/3043073))
-
 # Usage
 
 ```js
