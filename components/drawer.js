@@ -20,6 +20,10 @@ import IndexIcon from 'mdi-material-ui/FormatListBulleted';
 import OmitIcon from 'mdi-material-ui/PlaylistRemove';
 import KeysIcon from 'mdi-material-ui/DotsVertical';
 import PathIcon from 'mdi-material-ui/MapMarkerPath';
+import ContactIcon from 'mdi-material-ui/Forum';
+import GithubIcon from 'mdi-material-ui/GithubCircle';
+import GithubAltIcon from 'mdi-material-ui/GithubBox';
+import EmailIcon from 'mdi-material-ui/EmailOutline';
 
 function ListItemLink(props) {
   return <ListItem button component="a" {...props} />;
@@ -29,7 +33,7 @@ const styles = (theme) => ({
     flexShrink: 0,
     position: 'fixed',
     // float: 'left',
-    overflow: 'visible',
+    overflow: 'auto',
     backgroundColor: theme.palette.background.default,
     top: 0,
     left: 0,
@@ -55,6 +59,7 @@ const styles = (theme) => ({
   nestedList: {
     paddingLeft: 20,
   },
+  drawerList: {},
 });
 
 function drawer(props) {
@@ -74,7 +79,7 @@ function drawer(props) {
         </IconButton>
       </div>
       <Divider />
-      <List>
+      <List className={classes.drawerList}>
         <ListItemLink href="#installation">
           <ListItemIcon>
             <InstallIcon />
@@ -147,6 +152,33 @@ function drawer(props) {
               <PathIcon />
             </ListItemIcon>
             <ListItemText inset primary="pathToString" />
+          </ListItemLink>
+        </List>
+        <Divider />
+        <ListItem href="#methods">
+          <ListItemIcon>
+            <ContactIcon />
+          </ListItemIcon>
+          <ListItemText primary="Contact" />
+        </ListItem>
+        <List className={classes.nestedList}>
+          <ListItemLink href="https://github.com/YuriGor/deepdash/issues">
+            <ListItemIcon>
+              <GithubIcon />
+            </ListItemIcon>
+            <ListItemText inset primary="Deepdash" />
+          </ListItemLink>
+          <ListItemLink href="https://github.com/YuriGor/deepdash.io/issues">
+            <ListItemIcon>
+              <GithubAltIcon />
+            </ListItemIcon>
+            <ListItemText inset primary="Site" />
+          </ListItemLink>
+          <ListItemLink href="http://yurigor.com/contact-me/">
+            <ListItemIcon>
+              <EmailIcon />
+            </ListItemIcon>
+            <ListItemText inset primary="Message" />
           </ListItemLink>
         </List>
       </List>

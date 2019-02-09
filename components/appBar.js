@@ -9,12 +9,15 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 import { withStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import GithubIcon from 'mdi-material-ui/GithubCircle';
+import NpmIcon from 'mdi-material-ui/NpmVariantOutline';
 
 const styles = (theme) => ({
   appBar: {
     // width: `calc(100% - ${drawerWidth}px)`,
     // marginLeft: drawerWidth,
     zIndex: theme.zIndex.drawer + 1,
+    color: '#FFF',
   },
   grow: {
     flexGrow: 1,
@@ -26,7 +29,7 @@ const styles = (theme) => ({
   logo: {
     display: 'none',
     height: '24px',
-    marginRight: '20px',
+    marginRight: '0px',
     top: '4px',
     position: 'relative',
     [theme.breakpoints.up('sm')]: {
@@ -36,7 +39,7 @@ const styles = (theme) => ({
   logoSmall: {
     display: 'block',
     height: '24px',
-    marginRight: '15px',
+    marginRight: '0px',
     top: '2px',
     position: 'relative',
     [theme.breakpoints.up('sm')]: {
@@ -72,6 +75,12 @@ function appBar(props) {
               alt="Deepdash logo"
             />
           </>
+        </IconButton>
+        <IconButton href="https://github.com/YuriGor/deepdash" color="inherit">
+          <GithubIcon />
+        </IconButton>
+        <IconButton href="https://www.npmjs.com/package/deepdash" color="inherit">
+          <NpmIcon />
         </IconButton>
         <div className={classes.grow} />
         <IconButton href="#deepdash" color="inherit">

@@ -34,7 +34,7 @@ class MyApp extends App {
           if (elem) {
             const off = MyApp.offset(elem);
             // console.log('offset', off);
-            window.scroll({ behavior: 'smooth', top: off.top - 120 });
+            window.scroll({ behavior: 'smooth', top: off.top - 108 });
             if (hash !== location.hash) {
               history.pushState(null, '', hash);
             }
