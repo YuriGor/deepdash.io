@@ -11,7 +11,8 @@ header.logo {
     @include fit-parent();
     box-shadow: 0 0 20vw 0 #00213c inset;
     animation: bottom-parallax-frames 5s ease-in-out 0s infinite alternate;
-    background-image: url("/static/sand.png");
+    background-image: url("/static/sand.jpg");
+    opacity: 0.2;
   }
   h1 {
     position: absolute;
