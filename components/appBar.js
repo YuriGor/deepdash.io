@@ -17,7 +17,7 @@ const styles = (theme) => ({
   appBar: {
     // width: `calc(100% - ${drawerWidth}px)`,
     // marginLeft: drawerWidth,
-    zIndex: theme.zIndex.drawer + 1,
+    zIndex: theme.zIndex.drawer - 1,
     color: '#FFF',
   },
   grow: {

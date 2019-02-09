@@ -39,6 +39,7 @@ const styles = (theme) => ({
     left: 0,
     bottom: 0,
     boxShadow: '0px 0px 15px rgba(0,0,0,1)',
+    zIndex: theme.zIndex.drawer,
   },
   animated: {
     transition: theme.transitions.create(['transform'], {
