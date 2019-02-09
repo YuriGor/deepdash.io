@@ -72,7 +72,7 @@ function drawer(props) {
       })}
       style={{ width: `${width}px`, transform: `translate3d(${shift}px,0,0)` }}
     >
-      <span className={classes.versionLabel}>v1.9.4</span>
+      <span className={classes.versionLabel}>v1.9.5</span>
       <div className={classes.closeDrawerButton}>
         <IconButton onClick={toggleDrawerHandler} aria-label="Close Sidebar">
           <CloseIcon fontSize="small" />

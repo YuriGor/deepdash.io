@@ -1,7 +1,7 @@
 # Deepdash
 Looking for eachDeep, filterDeep, omitDeep, keysDeep etc? Tree traversal extension for Lodash.
 
-## Methods
+## List of Methods
 
 - [condense](#condense) - condense sparse array
 - [condenseDeep](#condensedeep) - condense all the nested arrays

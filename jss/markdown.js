@@ -64,10 +64,6 @@ const markdown = {
 
 for (let hs = 1; hs < 7; hs++) {
   markdown.markdown[`& h${hs}`] = {
-    '& a.separate-anchor': {
-      position: 'relative',
-      top: -150,
-    },
     '& a': {
       '& i.material-icons': {
         transform: `translateY(${2 + hs}px)`,
