@@ -19,6 +19,10 @@ const styles = (theme) => ({
     // marginLeft: drawerWidth,
     zIndex: theme.zIndex.drawer - 1,
     color: '#FFF',
+    opacity: 0.9,
+    '&:hover': {
+      opacity: 1,
+    },
   },
   grow: {
     flexGrow: 1,
