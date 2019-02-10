@@ -25,12 +25,12 @@ class MyApp extends App {
   scrollToHash(hash) {
     const me = this;
     hash = hash || location.hash;
-    console.log('scrollToHash', hash);
+    // console.log('scrollToHash', hash);
     if (hash) {
       _.delay(() => {
         window.requestAnimationFrame(() => {
           const elem = document.getElementById(hash.substr(1));
-          console.log('scroll to el:', elem);
+          // console.log('scroll to el:', elem);
           if (elem) {
             const off = MyApp.offset(elem);
             // console.log('offset', off);
@@ -45,7 +45,7 @@ class MyApp extends App {
   }
 
   componentDidMount() {
-    console.log('componentDidMount');
+    // console.log('componentDidMount');
     // Remove the server-side injected CSS.
     const me = this;
     const jssStyles = document.querySelector('#jss-server-side');
@@ -60,12 +60,12 @@ class MyApp extends App {
         if (href.length > 1) {
           const currentHref = location.href.split('#');
           if (currentHref[0] === href[0]) {
-            console.log(`location.${currentHref[0]} === ${href[0]}`);
+            // console.log(`location.${currentHref[0]} === ${href[0]}`);
             event.preventDefault();
             event.stopPropagation();
             me.scrollToHash.bind(me)(`#${href[1]}`);
           } else {
-            console.log(`location.${currentHref[0]} !== ${href[0]}`);
+            // console.log(`location.${currentHref[0]} !== ${href[0]}`);
           }
         }
       }

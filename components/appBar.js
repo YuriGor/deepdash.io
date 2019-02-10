@@ -33,7 +33,7 @@ const styles = (theme) => ({
     marginRight: '0px',
     top: '4px',
     position: 'relative',
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('md')]: {
       display: 'block',
     },
   },
@@ -43,20 +43,21 @@ const styles = (theme) => ({
     marginRight: '0px',
     top: '2px',
     position: 'relative',
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('md')]: {
       display: 'none',
     },
   },
 });
 
 function appBar(props) {
-  const { classes, toggleDrawerHandler } = props;
+  const { classes, openDrawerHandler } = props;
 
   return (
     <AppBar position="sticky" className={classes.appBar}>
       <Toolbar>
         <IconButton
-          onClick={toggleDrawerHandler}
+          id="btOpenDrawer"
+          onClick={openDrawerHandler}
           className={classes.menuButton}
           color="inherit"
           aria-label="Open drawer"
@@ -96,7 +97,7 @@ function appBar(props) {
 }
 appBar.propTypes = {
   classes: PropTypes.object.isRequired,
-  toggleDrawerHandler: PropTypes.func.isRequired,
+  openDrawerHandler: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(appBar);

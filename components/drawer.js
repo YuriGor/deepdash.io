@@ -24,6 +24,7 @@ import ContactIcon from 'mdi-material-ui/Forum';
 import GithubIcon from 'mdi-material-ui/GithubCircle';
 import GithubAltIcon from 'mdi-material-ui/GithubBox';
 import EmailIcon from 'mdi-material-ui/EmailOutline';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 
 function ListItemLink(props) {
   return <ListItem button component="a" {...props} />;
@@ -68,7 +69,7 @@ const styles = (theme) => ({
 });
 
 function drawer(props) {
-  const { classes, open, width, instant, toggleDrawerHandler } = props;
+  const { classes, open, width, instant, closeDrawerHandler } = props;
   const shift = open ? 0 : -width;
   return (
     <div
@@ -77,116 +78,120 @@ function drawer(props) {
       })}
       style={{ width: `${width}px`, transform: `translate3d(${shift}px,0,0)` }}
     >
-      <span className={classes.versionLabel}>v1.9.5</span>
-      <div className={classes.closeDrawerButton}>
-        <IconButton onClick={toggleDrawerHandler} aria-label="Close Sidebar">
-          <CloseIcon fontSize="small" />
-        </IconButton>
-      </div>
-      <Divider />
-      <List className={classes.drawerList}>
-        <ListItemLink href="#installation">
-          <ListItemIcon>
-            <InstallIcon />
-          </ListItemIcon>
-          <ListItemText primary="Installation" />
-        </ListItemLink>
-        <ListItemLink href="#usage">
-          <ListItemIcon>
-            <UseIcon />
-          </ListItemIcon>
-          <ListItemText primary="Usage" />
-        </ListItemLink>
-        <ListItemLink href="#methods">
-          <ListItemIcon>
-            <FuncIcon />
-          </ListItemIcon>
-          <ListItemText primary="Methods" />
-        </ListItemLink>
-        <List className={classes.nestedList}>
-          <ListItemLink href="#condense">
-            <ListItemIcon>
-              <CondenseIcon />
-            </ListItemIcon>
-            <ListItemText inset primary="condense" />
-          </ListItemLink>
-          <ListItemLink href="#condensedeep">
-            <ListItemIcon>
-              <CondenseAllIcon />
-            </ListItemIcon>
-            <ListItemText inset primary="condenseDeep" />
-          </ListItemLink>
-          <ListItemLink href="#eachdeep-foreachdeep">
-            <ListItemIcon>
-              <EachDeepIcon />
-            </ListItemIcon>
-            <ListItemText inset primary="(for)eachDeep" />
-          </ListItemLink>
-          <ListItemLink href="#exists">
-            <ListItemIcon>
-              <ExistsIcon />
-            </ListItemIcon>
-            <ListItemText inset primary="exists" />
-          </ListItemLink>
-          <ListItemLink href="#filterdeep">
-            <ListItemIcon>
-              <FilterIcon />
-            </ListItemIcon>
-            <ListItemText inset primary="filterDeep" />
-          </ListItemLink>
-          <ListItemLink href="#indexate">
-            <ListItemIcon>
-              <IndexIcon />
-            </ListItemIcon>
-            <ListItemText inset primary="indexate" />
-          </ListItemLink>
-          <ListItemLink href="#paths-keysdeep">
-            <ListItemIcon>
-              <KeysIcon />
-            </ListItemIcon>
-            <ListItemText inset primary="paths(keysDeep)" />
-          </ListItemLink>
-          <ListItemLink href="#omitdeep">
-            <ListItemIcon>
-              <OmitIcon />
-            </ListItemIcon>
-            <ListItemText inset primary="omitDeep" />
-          </ListItemLink>
-          <ListItemLink href="#pathtostring">
-            <ListItemIcon>
-              <PathIcon />
-            </ListItemIcon>
-            <ListItemText inset primary="pathToString" />
-          </ListItemLink>
-        </List>
-        <Divider />
-        <ListItem href="#methods">
-          <ListItemIcon>
-            <ContactIcon />
-          </ListItemIcon>
-          <ListItemText primary="Contact" />
-        </ListItem>
-        <List className={classes.nestedList}>
-          <ListItemLink href="https://github.com/YuriGor/deepdash/issues">
-            <ListItemIcon>
-              <GithubIcon />
-            </ListItemIcon>
-            <ListItemText inset primary="Deepdash" />
-          </ListItemLink>
-          <ListItemLink href="https://github.com/YuriGor/deepdash.io/issues">
-            <ListItemIcon>
-              <GithubAltIcon />
-            </ListItemIcon>
-            <ListItemText inset primary="Site" />
-          </ListItemLink>
-          <ListItemLink href="http://yurigor.com/contact-me/">
-            <ListItemIcon>
-              <EmailIcon />
-            </ListItemIcon>
-            <ListItemText inset primary="Message" />
-          </ListItemLink>
-        </List>
-      </List>
+      <ClickAwayListener onClickAway={closeDrawerHandler}>
+        <>
+          <span className={classes.versionLabel}>v1.9.5</span>
+          <div className={classes.closeDrawerButton}>
+            <IconButton onClick={closeDrawerHandler} aria-label="Close Sidebar">
+              <CloseIcon fontSize="small" />
+            </IconButton>
+          </div>
+          <Divider />
+          <List className={classes.drawerList}>
+            <ListItemLink href="#installation">
+              <ListItemIcon>
+                <InstallIcon />
+              </ListItemIcon>
+              <ListItemText primary="Installation" />
+            </ListItemLink>
+            <ListItemLink href="#usage">
+              <ListItemIcon>
+                <UseIcon />
+              </ListItemIcon>
+              <ListItemText primary="Usage" />
+            </ListItemLink>
+            <ListItemLink href="#methods">
+              <ListItemIcon>
+                <FuncIcon />
+              </ListItemIcon>
+              <ListItemText primary="Methods" />
+            </ListItemLink>
+            <List className={classes.nestedList}>
+              <ListItemLink href="#condense">
+                <ListItemIcon>
+                  <CondenseIcon />
+                </ListItemIcon>
+                <ListItemText inset primary="condense" />
+              </ListItemLink>
+              <ListItemLink href="#condensedeep">
+                <ListItemIcon>
+                  <CondenseAllIcon />
+                </ListItemIcon>
+                <ListItemText inset primary="condenseDeep" />
+              </ListItemLink>
+              <ListItemLink href="#eachdeep-foreachdeep">
+                <ListItemIcon>
+                  <EachDeepIcon />
+                </ListItemIcon>
+                <ListItemText inset primary="(for)eachDeep" />
+              </ListItemLink>
+              <ListItemLink href="#exists">
+                <ListItemIcon>
+                  <ExistsIcon />
+                </ListItemIcon>
+                <ListItemText inset primary="exists" />
+              </ListItemLink>
+              <ListItemLink href="#filterdeep">
+                <ListItemIcon>
+                  <FilterIcon />
+                </ListItemIcon>
+                <ListItemText inset primary="filterDeep" />
+              </ListItemLink>
+              <ListItemLink href="#indexate">
+                <ListItemIcon>
+                  <IndexIcon />
+                </ListItemIcon>
+                <ListItemText inset primary="indexate" />
+              </ListItemLink>
+              <ListItemLink href="#paths-keysdeep">
+                <ListItemIcon>
+                  <KeysIcon />
+                </ListItemIcon>
+                <ListItemText inset primary="paths(keysDeep)" />
+              </ListItemLink>
+              <ListItemLink href="#omitdeep">
+                <ListItemIcon>
+                  <OmitIcon />
+                </ListItemIcon>
+                <ListItemText inset primary="omitDeep" />
+              </ListItemLink>
+              <ListItemLink href="#pathtostring">
+                <ListItemIcon>
+                  <PathIcon />
+                </ListItemIcon>
+                <ListItemText inset primary="pathToString" />
+              </ListItemLink>
+            </List>
+            <Divider />
+            <ListItem href="#methods">
+              <ListItemIcon>
+                <ContactIcon />
+              </ListItemIcon>
+              <ListItemText primary="Contact" />
+            </ListItem>
+            <List className={classes.nestedList}>
+              <ListItemLink href="https://github.com/YuriGor/deepdash/issues">
+                <ListItemIcon>
+                  <GithubIcon />
+                </ListItemIcon>
+                <ListItemText inset primary="Deepdash" />
+              </ListItemLink>
+              <ListItemLink href="https://github.com/YuriGor/deepdash.io/issues">
+                <ListItemIcon>
+                  <GithubAltIcon />
+                </ListItemIcon>
+                <ListItemText inset primary="Site" />
+              </ListItemLink>
+              <ListItemLink href="http://yurigor.com/contact-me/">
+                <ListItemIcon>
+                  <EmailIcon />
+                </ListItemIcon>
+                <ListItemText inset primary="Message" />
+              </ListItemLink>
+            </List>
+          </List>
+        </>
+      </ClickAwayListener>
     </div>
   );
 }
@@ -199,7 +204,7 @@ drawer.propTypes = {
   open: PropTypes.bool,
   instant: PropTypes.bool,
   width: PropTypes.number.isRequired,
-  toggleDrawerHandler: PropTypes.func.isRequired,
+  closeDrawerHandler: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(drawer);

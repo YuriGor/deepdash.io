@@ -3,7 +3,7 @@ const headings = require('remark-autolink-headings');
 const highlight = require('remark-highlight.js');
 const html = require('remark-html');
 // const remark2react = require('remark-react');
-const toc = require('remark-toc');
+// const toc = require('remark-toc');
 const slug = require('remark-slug');
 const fs = require('fs');
 
