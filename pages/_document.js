@@ -3,6 +3,12 @@ import PropTypes from 'prop-types';
 import Document, { Head, Main } from 'next/document';
 import { NextScript, FeaturePolyfills } from '@engineerapart/nextscript';
 import flush from 'styled-jsx/server';
+import { reactGa } from 'react-ga';
+
+if (reactGa) {
+  reactGa.initialize('UA-134243932-1');
+  reactGa.pageview(window.location.pathname + window.location.search);
+}
 
 const features = [
   {
@@ -29,6 +35,7 @@ class MyDocument extends Document {
             name="theme-color"
             content={pageContext ? pageContext.theme.palette.primary.main : null}
           />
+          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134243932-1" />
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
