@@ -15,6 +15,10 @@ module.exports = withCSS(
       }
       // This will copy robots.txt from your project root into the out directory
       await copyFile(join(dir, 'favicon.png'), join(outDir, 'favicon.png'));
+      await copyFile(
+        join(dir, 'google82bc6ed1675073b2.html'),
+        join(outDir, 'google82bc6ed1675073b2.html'),
+      );
       return defaultPathMap;
     },
   }),
