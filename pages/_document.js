@@ -3,12 +3,7 @@ import PropTypes from 'prop-types';
 import Document, { Head, Main } from 'next/document';
 import { NextScript, FeaturePolyfills } from '@engineerapart/nextscript';
 import flush from 'styled-jsx/server';
-import { reactGa } from 'react-ga';
-
-if (reactGa) {
-  reactGa.initialize('UA-134243932-1');
-  reactGa.pageview(window.location.pathname + window.location.search);
-}
+import { GA_TRACKING_ID } from '../lib/gtag';
 
 const features = [
   {
@@ -39,6 +34,18 @@ class MyDocument extends Document {
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
+          />
+          {/* Global Site Tag (gtag.js) - Google Analytics */}
+          <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_TRACKING_ID}');
+          `,
+            }}
           />
         </Head>
         <body>

@@ -29,7 +29,6 @@
     "prop-types": "^15.6.2",
     "react": "latest",
     "react-dom": "latest",
-    "react-ga": "^2.5.7",
     "react-jss": "^8.1.0",
     "remark": "^10.0.1",
     "remark-autolink-headings": "^5.1.0",
