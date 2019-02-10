@@ -41,7 +41,7 @@ header.logo {
 @keyframes float-deep-frames {
     0% {
       //drop-shadow(0 0 0 rgba(#97cfff,0)) 
-      filter: drop-shadow(-5.5vw 5.5vw 1.2vw rgba(#000,0.8)) blur(0px);
+      filter: drop-shadow(-5.5vw 5.5vw 1.4vw rgba(#000,0.8)) blur(0px);
       opacity: 1;
       transform: perspective(300px) translate3d(-50%, -50%, 0px);
     }
