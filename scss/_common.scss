@@ -7,6 +7,31 @@ $breakpoints: (
   'xl': 1920px
 );
 
+.hide-till-mounted {
+    visibility: hidden;
+  }
+
+@each $br,$sz in $breakpoints {
+  .hide-till-mounted-#{$br} {
+    @media screen and (max-width: $sz) {
+      visibility: hidden;
+    }
+  }
+}
+
+.mounted {
+  .hide-till-mounted {
+    visibility: visible;
+  }
+  @each $br,$sz in $breakpoints {
+    .hide-till-mounted-#{$br} {
+      @media screen and (max-width: $sz) {
+        visibility: visible;
+      }
+    }
+  }
+}
+
 $drawerWidth: 240px;
 
 html{

@@ -15,7 +15,6 @@ const features = [
 class MyDocument extends Document {
   render() {
     const { pageContext } = this.props;
-
     return (
       <html lang="en" dir="ltr">
         <Head>

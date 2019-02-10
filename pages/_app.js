@@ -24,6 +24,7 @@ class MyApp extends App {
 
   scrollToHash(hash) {
     const me = this;
+    const behavior = hash === undefined ? 'instant' : 'smooth';
     hash = hash || location.hash;
     // console.log('scrollToHash', hash);
     if (hash) {
@@ -34,7 +35,7 @@ class MyApp extends App {
           if (elem) {
             const off = MyApp.offset(elem);
             // console.log('offset', off);
-            window.scroll({ behavior: 'smooth', top: off.top - 108 });
+            window.scrollTo({ behavior, top: off.top - 108 });
             if (hash !== location.hash) {
               history.pushState(null, '', hash);
             }
@@ -47,6 +48,8 @@ class MyApp extends App {
   componentDidMount() {
     // console.log('componentDidMount');
     // Remove the server-side injected CSS.
+    const root = document.getElementsByTagName('html')[0];
+    root.classList.add('mounted');
     const me = this;
     const jssStyles = document.querySelector('#jss-server-side');
     if (jssStyles && jssStyles.parentNode) {

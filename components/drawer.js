@@ -70,15 +70,21 @@ const styles = (theme) => ({
 
 function drawer(props) {
   const { classes, open, width, instant, closeDrawerHandler } = props;
+  const clickAwayHandler = (e) => {
+    if (window.innerWidth >= 600) {
+      return;
+    }
+    closeDrawerHandler(e);
+  };
   const shift = open ? 0 : -width;
   return (
     <div
-      className={classNames(classes.drawer, {
+      className={classNames('hide-till-mounted-sm', classes.drawer, {
         [classes.animated]: !instant,
       })}
       style={{ width: `${width}px`, transform: `translate3d(${shift}px,0,0)` }}
     >
-      <ClickAwayListener onClickAway={closeDrawerHandler}>
+      <ClickAwayListener onClickAway={clickAwayHandler}>
         <>
           <span className={classes.versionLabel}>v1.9.5</span>
           <div className={classes.closeDrawerButton}>
