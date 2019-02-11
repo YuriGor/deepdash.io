@@ -20,7 +20,8 @@ import IndexIcon from 'mdi-material-ui/FormatListBulleted';
 import OmitIcon from 'mdi-material-ui/PlaylistRemove';
 import KeysIcon from 'mdi-material-ui/DotsVertical';
 import PathIcon from 'mdi-material-ui/MapMarkerPath';
-import ContactIcon from 'mdi-material-ui/Forum';
+import ContactIcon from 'mdi-material-ui/Message';
+import ChatIcon from 'mdi-material-ui/Forum';
 import GithubIcon from 'mdi-material-ui/GithubCircle';
 import GithubAltIcon from 'mdi-material-ui/GithubBox';
 import EmailIcon from 'mdi-material-ui/EmailOutline';
@@ -176,6 +177,12 @@ function drawer(props) {
               <ListItemText primary="Contact" />
             </ListItem>
             <List className={classes.nestedList}>
+              <ListItemLink href="https://spectrum.chat/deepdash">
+                <ListItemIcon>
+                  <ChatIcon />
+                </ListItemIcon>
+                <ListItemText inset primary="Chat" />
+              </ListItemLink>
               <ListItemLink href="https://github.com/YuriGor/deepdash/issues">
                 <ListItemIcon>
                   <GithubIcon />
