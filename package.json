@@ -36,7 +36,8 @@
     "remark-html": "^9.0.0",
     "remark-react": "^5.0.1",
     "remark-slug": "^5.1.1",
-    "remark-toc": "^5.1.1"
+    "remark-toc": "^5.1.1",
+    "webpack": "*"
   },
   "devDependencies": {
     "babel-eslint": "*",
