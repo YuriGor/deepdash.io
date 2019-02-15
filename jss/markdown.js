@@ -8,6 +8,17 @@ const markdown = {
     // },
   },
   markdown: {
+    '& blockquote': {
+      borderLeft: [['.25em', 'solid', '#dfe2e5']],
+      color: '#6a737d',
+      padding: [[0, '1em']],
+      // background: '#EEEEEE',
+      margin: 0,
+      display: 'inline-block',
+      '& p': {
+        margin: [['0.5em', 0]],
+      },
+    },
     '& pre': {
       display: 'inline-block',
       maxWidth: 'calc(100% - 48px)',

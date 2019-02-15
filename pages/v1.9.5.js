@@ -3,7 +3,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/styles';
-import classNames from 'classnames';
 import List from '@material-ui/core/List';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -25,7 +24,7 @@ import { styles as drawerStyles } from '../components/drawer';
 import ListItemLink from '../components/listItemLink';
 
 const mdMain = preval`
-      module.exports = require('../preval/md')('v2.0.0');
+      module.exports = require('../preval/md')('v1.9.5');
     `;
 // console.log(mdMain);
 const styles = (theme) => ({
@@ -131,4 +130,4 @@ SideContent.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 // export default withLayout(withStyles(styles)(Index));
-export default withLayout('/', withStyles(styles)(SideContent), withStyles(styles)(Index));
+export default withLayout('/v1.9.5', withStyles(styles)(SideContent), withStyles(styles)(Index));

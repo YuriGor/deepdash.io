@@ -8,29 +8,23 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
-import InstallIcon from 'mdi-material-ui/ArrowDownBoldHexagonOutline';
-import UseIcon from '@material-ui/icons/PlayCircleOutline';
-import FuncIcon from 'mdi-material-ui/FunctionVariant';
-import CondenseIcon from 'mdi-material-ui/ArrowCollapseHorizontal';
-import CondenseAllIcon from 'mdi-material-ui/ArrowCollapseAll';
-import EachDeepIcon from 'mdi-material-ui/FileTree';
-import ExistsIcon from 'mdi-material-ui/HelpNetworkOutline';
-import FilterIcon from 'mdi-material-ui/FilterOutline';
-import IndexIcon from 'mdi-material-ui/FormatListBulleted';
-import OmitIcon from 'mdi-material-ui/PlaylistRemove';
-import KeysIcon from 'mdi-material-ui/DotsVertical';
-import PathIcon from 'mdi-material-ui/MapMarkerPath';
 import ContactIcon from 'mdi-material-ui/Message';
 import ChatIcon from 'mdi-material-ui/Forum';
 import GithubIcon from 'mdi-material-ui/GithubCircle';
 import GithubAltIcon from 'mdi-material-ui/GithubBox';
 import EmailIcon from 'mdi-material-ui/EmailOutline';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+// import Select from '@material-ui/core/Select';
+import NativeSelect from '@material-ui/core/NativeSelect';
+import MenuItem from '@material-ui/core/MenuItem';
+import Router from 'next/router';
+import ListItemLink from './listItemLink';
+import versions from '../lib/versions';
 
-function ListItemLink(props) {
-  return <ListItem button component="a" {...props} />;
-}
-const styles = (theme) => ({
+const nestedListStyle = {
+  paddingLeft: 20,
+};
+const stylesPrivate = (theme) => ({
   drawer: {
     flexShrink: 0,
     position: 'fixed',
@@ -53,9 +47,9 @@ const styles = (theme) => ({
       duration: theme.transitions.duration.leavingScreen,
     }),
   },
-  versionLabel: {
+  versionSelect: {
     float: 'left',
-    marginTop: 24,
+    marginTop: 14,
     marginLeft: 24,
   },
   closeDrawerButton: {
@@ -63,14 +57,12 @@ const styles = (theme) => ({
     marginBottom: 9,
     textAlign: 'right',
   },
-  nestedList: {
-    paddingLeft: 20,
-  },
   drawerList: {},
+  nestedList: nestedListStyle,
 });
 
 function drawer(props) {
-  const { classes, open, width, instant, closeDrawerHandler } = props;
+  const { classes, open, width, instant, closeDrawerHandler, currentUrl } = props;
   const clickAwayHandler = (e) => {
     if (window.innerWidth >= 600) {
       return;
@@ -87,121 +79,57 @@ function drawer(props) {
     >
       <ClickAwayListener onClickAway={clickAwayHandler}>
         <>
-          <span className={classes.versionLabel}>v1.9.5</span>
+          <NativeSelect
+            value={currentUrl}
+            onChange={(event) => Router.push(event.target.value)}
+            name="age"
+            className={classes.versionSelect}
+          >
+            {versions.map((version) => (
+              <option key={version.v} value={version.u}>
+                {version.v}
+              </option>
+            ))}
+          </NativeSelect>
           <div className={classes.closeDrawerButton}>
             <IconButton onClick={closeDrawerHandler} aria-label="Close Sidebar">
               <CloseIcon fontSize="small" />
             </IconButton>
           </div>
           <Divider />
-          <List className={classes.drawerList}>
-            <ListItemLink href="#installation">
+          <List className={classes.drawerList}>{props.children}</List>
+          <Divider />
+          <ListItem href="#methods">
+            <ListItemIcon>
+              <ContactIcon />
+            </ListItemIcon>
+            <ListItemText primary="Contact" />
+          </ListItem>
+          <List className={classes.nestedList}>
+            <ListItemLink href="https://spectrum.chat/deepdash">
               <ListItemIcon>
-                <InstallIcon />
+                <ChatIcon />
               </ListItemIcon>
-              <ListItemText primary="Installation" />
+              <ListItemText inset primary="Chat" />
             </ListItemLink>
-            <ListItemLink href="#usage">
+            <ListItemLink href="https://github.com/YuriGor/deepdash/issues">
               <ListItemIcon>
-                <UseIcon />
+                <GithubIcon />
               </ListItemIcon>
-              <ListItemText primary="Usage" />
+              <ListItemText inset primary="Deepdash" />
             </ListItemLink>
-            <ListItemLink href="#methods">
+            <ListItemLink href="https://github.com/YuriGor/deepdash.io/issues">
               <ListItemIcon>
-                <FuncIcon />
+                <GithubAltIcon />
               </ListItemIcon>
-              <ListItemText primary="Methods" />
+              <ListItemText inset primary="Site" />
             </ListItemLink>
-            <List className={classes.nestedList}>
-              <ListItemLink href="#condense">
-                <ListItemIcon>
-                  <CondenseIcon />
-                </ListItemIcon>
-                <ListItemText inset primary="condense" />
-              </ListItemLink>
-              <ListItemLink href="#condensedeep">
-                <ListItemIcon>
-                  <CondenseAllIcon />
-                </ListItemIcon>
-                <ListItemText inset primary="condenseDeep" />
-              </ListItemLink>
-              <ListItemLink href="#eachdeep-foreachdeep">
-                <ListItemIcon>
-                  <EachDeepIcon />
-                </ListItemIcon>
-                <ListItemText inset primary="(for)eachDeep" />
-              </ListItemLink>
-              <ListItemLink href="#exists">
-                <ListItemIcon>
-                  <ExistsIcon />
-                </ListItemIcon>
-                <ListItemText inset primary="exists" />
-              </ListItemLink>
-              <ListItemLink href="#filterdeep">
-                <ListItemIcon>
-                  <FilterIcon />
-                </ListItemIcon>
-                <ListItemText inset primary="filterDeep" />
-              </ListItemLink>
-              <ListItemLink href="#indexate">
-                <ListItemIcon>
-                  <IndexIcon />
-                </ListItemIcon>
-                <ListItemText inset primary="indexate" />
-              </ListItemLink>
-              <ListItemLink href="#paths-keysdeep">
-                <ListItemIcon>
-                  <KeysIcon />
-                </ListItemIcon>
-                <ListItemText inset primary="paths(keysDeep)" />
-              </ListItemLink>
-              <ListItemLink href="#omitdeep">
-                <ListItemIcon>
-                  <OmitIcon />
-                </ListItemIcon>
-                <ListItemText inset primary="omitDeep" />
-              </ListItemLink>
-              <ListItemLink href="#pathtostring">
-                <ListItemIcon>
-                  <PathIcon />
-                </ListItemIcon>
-                <ListItemText inset primary="pathToString" />
-              </ListItemLink>
-            </List>
-            <Divider />
-            <ListItem href="#methods">
+            <ListItemLink href="http://yurigor.com/contact-me/">
               <ListItemIcon>
-                <ContactIcon />
+                <EmailIcon />
               </ListItemIcon>
-              <ListItemText primary="Contact" />
-            </ListItem>
-            <List className={classes.nestedList}>
-              <ListItemLink href="https://spectrum.chat/deepdash">
-                <ListItemIcon>
-                  <ChatIcon />
-                </ListItemIcon>
-                <ListItemText inset primary="Chat" />
-              </ListItemLink>
-              <ListItemLink href="https://github.com/YuriGor/deepdash/issues">
-                <ListItemIcon>
-                  <GithubIcon />
-                </ListItemIcon>
-                <ListItemText inset primary="Deepdash" />
-              </ListItemLink>
-              <ListItemLink href="https://github.com/YuriGor/deepdash.io/issues">
-                <ListItemIcon>
-                  <GithubAltIcon />
-                </ListItemIcon>
-                <ListItemText inset primary="Site" />
-              </ListItemLink>
-              <ListItemLink href="http://yurigor.com/contact-me/">
-                <ListItemIcon>
-                  <EmailIcon />
-                </ListItemIcon>
-                <ListItemText inset primary="Message" />
-              </ListItemLink>
-            </List>
+              <ListItemText inset primary="Message" />
+            </ListItemLink>
           </List>
         </>
       </ClickAwayListener>
@@ -220,4 +148,7 @@ drawer.propTypes = {
   closeDrawerHandler: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles)(drawer);
+export default withStyles(stylesPrivate)(drawer);
+export const styles = {
+  nestedList: nestedListStyle,
+};
