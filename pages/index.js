@@ -16,6 +16,7 @@ import EachDeepIcon from 'mdi-material-ui/FileTree';
 import ExistsIcon from 'mdi-material-ui/HelpNetworkOutline';
 import FilterIcon from 'mdi-material-ui/FilterOutline';
 import IndexIcon from 'mdi-material-ui/FormatListBulleted';
+import PickIcon from 'mdi-material-ui/PlaylistPlus';
 import OmitIcon from 'mdi-material-ui/PlaylistRemove';
 import KeysIcon from 'mdi-material-ui/DotsVertical';
 import PathIcon from 'mdi-material-ui/MapMarkerPath';
@@ -110,6 +111,12 @@ function SideContent(props) {
             <KeysIcon />
           </ListItemIcon>
           <ListItemText inset primary="paths(keysDeep)" />
+        </ListItemLink>
+        <ListItemLink href="#pickdeep">
+          <ListItemIcon>
+            <PickIcon />
+          </ListItemIcon>
+          <ListItemText inset primary="pickDeep" />
         </ListItemLink>
         <ListItemLink href="#omitdeep">
           <ListItemIcon>

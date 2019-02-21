@@ -38,7 +38,7 @@ htm = remark()
 //   htm,
 //   (value, key) => (value && value.id === 'user-content-contents' ? true : undefined),
 //   {
-//     leafsOnly: false,
+//     leavesOnly: false,
 //   },
 // );
 // console.log(htm.props.children[0].props.children[0].props);
