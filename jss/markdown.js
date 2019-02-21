@@ -8,6 +8,9 @@ const markdown = {
     // },
   },
   markdown: {
+    '& li code:first-of-type': {
+      fontWeight: 'bold',
+    },
     '& blockquote': {
       borderLeft: [['.25em', 'solid', '#dfe2e5']],
       color: '#6a737d',

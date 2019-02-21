@@ -20,6 +20,7 @@ import PickIcon from 'mdi-material-ui/PlaylistPlus';
 import OmitIcon from 'mdi-material-ui/PlaylistRemove';
 import KeysIcon from 'mdi-material-ui/DotsVertical';
 import PathIcon from 'mdi-material-ui/MapMarkerPath';
+import CallbackIcon from 'mdi-material-ui/UndoVariant';
 import withLayout from '../lib/withLayout';
 import markdown from '../jss/markdown';
 import { styles as drawerStyles } from '../components/drawer';
@@ -88,6 +89,14 @@ function SideContent(props) {
           </ListItemIcon>
           <ListItemText inset primary="(for)eachDeep" />
         </ListItemLink>
+        <List className={classes.nestedList}>
+          <ListItemLink href="#iteratee">
+            <ListItemIcon>
+              <CallbackIcon />
+            </ListItemIcon>
+            <ListItemText inset primary="iteratee" />
+          </ListItemLink>
+        </List>
         <ListItemLink href="#exists">
           <ListItemIcon>
             <ExistsIcon />
