@@ -13,10 +13,11 @@ import ChatIcon from 'mdi-material-ui/Forum';
 import GithubIcon from 'mdi-material-ui/GithubCircle';
 import GithubAltIcon from 'mdi-material-ui/GithubBox';
 import EmailIcon from 'mdi-material-ui/EmailOutline';
+import TwitterIcon from 'mdi-material-ui/TwitterCircle';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 // import Select from '@material-ui/core/Select';
 import NativeSelect from '@material-ui/core/NativeSelect';
-import MenuItem from '@material-ui/core/MenuItem';
+// import MenuItem from '@material-ui/core/MenuItem';
 import Router from 'next/router';
 import ListItemLink from './listItemLink';
 import versions from '../lib/versions';
@@ -123,6 +124,12 @@ function drawer(props) {
                 <GithubAltIcon />
               </ListItemIcon>
               <ListItemText inset primary="Site" />
+            </ListItemLink>
+            <ListItemLink href="https://twitter.com/gor_yuri">
+              <ListItemIcon>
+                <TwitterIcon />
+              </ListItemIcon>
+              <ListItemText inset primary="Twitter" />
             </ListItemLink>
             <ListItemLink href="http://yurigor.com/contact-me/">
               <ListItemIcon>
