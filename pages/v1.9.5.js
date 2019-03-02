@@ -24,7 +24,7 @@ import { styles as drawerStyles } from '../components/drawer';
 import ListItemLink from '../components/listItemLink';
 
 const mdMain = preval`
-      module.exports = require('../preval/md')('v1.9.5');
+      module.exports = require('../preval/md')('docs/v1.9.5');
     `;
 // console.log(mdMain);
 const styles = (theme) => ({

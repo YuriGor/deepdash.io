@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
@@ -19,8 +20,10 @@ import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import NativeSelect from '@material-ui/core/NativeSelect';
 // import MenuItem from '@material-ui/core/MenuItem';
 import Router from 'next/router';
+import DocsIcon from 'mdi-material-ui/BookOpenPageVariant';
 import ListItemLink from './listItemLink';
 import versions from '../lib/versions';
+import ListItemNextLink from './listItemNextLink';
 
 const nestedListStyle = {
   paddingLeft: 20,
@@ -63,7 +66,9 @@ const stylesPrivate = (theme) => ({
 });
 
 function drawer(props) {
-  const { classes, open, width, instant, closeDrawerHandler, currentUrl } = props;
+  const { classes, open, width, instant, closeDrawerHandler, currentUrl, children } = props;
+  // console.log('currentUrl', currentUrl);
+  const showVersions = _.some(versions, ['u', currentUrl]);
   const clickAwayHandler = (e) => {
     if (window.innerWidth >= 600) {
       return;
@@ -80,25 +85,33 @@ function drawer(props) {
     >
       <ClickAwayListener onClickAway={clickAwayHandler}>
         <>
-          <NativeSelect
-            value={currentUrl}
-            onChange={(event) => Router.push(event.target.value)}
-            name="age"
-            className={classes.versionSelect}
-          >
-            {versions.map((version) => (
-              <option key={version.v} value={version.u}>
-                {version.v}
-              </option>
-            ))}
-          </NativeSelect>
+          {showVersions && (
+            <NativeSelect
+              value={currentUrl}
+              onChange={(event) => Router.push(event.target.value)}
+              name="age"
+              className={classes.versionSelect}
+            >
+              {versions.map((version) => (
+                <option key={version.v} value={version.u}>
+                  {version.v}
+                </option>
+              ))}
+            </NativeSelect>
+          )}
           <div className={classes.closeDrawerButton}>
             <IconButton onClick={closeDrawerHandler} aria-label="Close Sidebar">
               <CloseIcon fontSize="small" />
             </IconButton>
           </div>
           <Divider />
-          <List className={classes.drawerList}>{props.children}</List>
+          <ListItemNextLink href="/">
+            <ListItemIcon>
+              <DocsIcon />
+            </ListItemIcon>
+            <ListItemText inset primary="Docs" />
+          </ListItemNextLink>
+          <List className={classes.drawerList}>{children}</List>
           <Divider />
           <ListItem href="#methods">
             <ListItemIcon>
@@ -146,12 +159,14 @@ function drawer(props) {
 drawer.defaultProps = {
   open: true,
   instant: true,
+  currentUrl: '/',
 };
 drawer.propTypes = {
   classes: PropTypes.object.isRequired,
   open: PropTypes.bool,
   instant: PropTypes.bool,
   width: PropTypes.number.isRequired,
+  currentUrl: PropTypes.string.isRequired,
   closeDrawerHandler: PropTypes.func.isRequired,
 };
 

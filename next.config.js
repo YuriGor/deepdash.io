@@ -10,6 +10,7 @@ const copyFile = promisify(fs.copyFile);
 module.exports = withCSS(
   withSass({
     async exportPathMap(defaultPathMap, { dev, dir, outDir, distDir, buildId }) {
+      defaultPathMap['/CHANGELOG.md'] = { page: '/changelog' };
       if (dev) {
         return defaultPathMap;
       }

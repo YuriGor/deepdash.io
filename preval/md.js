@@ -8,7 +8,10 @@ const slug = require('remark-slug');
 const fs = require('fs');
 
 module.exports = function processMd(fn) {
-  let htm = fs.readFileSync(require.resolve(`${__dirname}/../markdown/${fn}.md`), 'utf8');
+  let htm = fs.readFileSync(
+    require.resolve(`${__dirname}/../node_modules/deepdash/${fn}.md`),
+    'utf8',
+  );
   htm = remark()
     .use(highlight)
     .use(slug)
