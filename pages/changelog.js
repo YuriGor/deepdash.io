@@ -48,9 +48,15 @@ function SideContent(props) {
         <ListItemText primary="Change Log" />
       </ListItemLink>
       <List className={classes.nestedList}>
-        <ListItemLink href="#v2-1-0">
+        <ListItemLink href="#v3-1-0">
           <ListItemIcon>
             <LatestVersionIcon />
+          </ListItemIcon>
+          <ListItemText primary="v3.1.0" />
+        </ListItemLink>
+        <ListItemLink href="#v2-1-0">
+          <ListItemIcon>
+            <VersionIcon />
           </ListItemIcon>
           <ListItemText primary="v2.1.0" />
         </ListItemLink>

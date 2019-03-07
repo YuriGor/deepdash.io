@@ -29,7 +29,7 @@ import ListItemLink from '../components/listItemLink';
 import ListItemNextLink from '../components/listItemNextLink';
 
 const mdMain = preval`
-      module.exports = require('../preval/md')('docs/v3.1.0');
+      module.exports = require('../preval/md')('docs/v2.1.0');
     `;
 // console.log(mdMain);
 const styles = (theme) => ({
@@ -142,7 +142,7 @@ function SideContent(props) {
           <ListItemText inset primary="pathToString" />
         </ListItemLink>
       </List>
-      <ListItemNextLink href="/changelog#v3-1-0">
+      <ListItemNextLink href="/changelog#v2-1-0">
         <ListItemIcon>
           <ChangeLogIcon />
         </ListItemIcon>
@@ -155,4 +155,4 @@ SideContent.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 // export default withLayout(withStyles(styles)(Index));
-export default withLayout('/', withStyles(styles)(SideContent), withStyles(styles)(Index));
+export default withLayout('/v2.1.0', withStyles(styles)(SideContent), withStyles(styles)(Index));
