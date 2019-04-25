@@ -18,6 +18,7 @@ import FilterIcon from 'mdi-material-ui/FilterOutline';
 import IndexIcon from 'mdi-material-ui/FormatListBulleted';
 import PickIcon from 'mdi-material-ui/PlaylistPlus';
 import OmitIcon from 'mdi-material-ui/PlaylistRemove';
+import ReduceIcon from 'mdi-material-ui/DebugStepInto';
 import KeysIcon from 'mdi-material-ui/DotsVertical';
 import PathIcon from 'mdi-material-ui/MapMarkerPath';
 import CallbackIcon from 'mdi-material-ui/UndoVariant';
@@ -134,6 +135,12 @@ function SideContent(props) {
             <OmitIcon />
           </ListItemIcon>
           <ListItemText inset primary="omitDeep" />
+        </ListItemLink>
+        <ListItemLink href="#reducedeep">
+          <ListItemIcon>
+            <ReduceIcon />
+          </ListItemIcon>
+          <ListItemText inset primary="reduceDeep" />
         </ListItemLink>
         <ListItemLink href="#pathtostring">
           <ListItemIcon>
