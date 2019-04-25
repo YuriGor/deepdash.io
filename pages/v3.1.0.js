@@ -29,7 +29,7 @@ import ListItemLink from '../components/listItemLink';
 import ListItemNextLink from '../components/listItemNextLink';
 
 const mdMain = preval`
-      module.exports = require('../preval/md')('docs/index');
+      module.exports = require('../preval/md')('docs/v3.1.0');
     `;
 // console.log(mdMain);
 const styles = (theme) => ({
@@ -111,11 +111,11 @@ function SideContent(props) {
           </ListItemIcon>
           <ListItemText inset primary="filterDeep" />
         </ListItemLink>
-        <ListItemLink href="#index">
+        <ListItemLink href="#indexate">
           <ListItemIcon>
             <IndexIcon />
           </ListItemIcon>
-          <ListItemText inset primary="index" />
+          <ListItemText inset primary="indexate" />
         </ListItemLink>
         <ListItemLink href="#paths-keysdeep">
           <ListItemIcon>
@@ -155,4 +155,4 @@ SideContent.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 // export default withLayout(withStyles(styles)(Index));
-export default withLayout('/', withStyles(styles)(SideContent), withStyles(styles)(Index));
+export default withLayout('/v3.1.0', withStyles(styles)(SideContent), withStyles(styles)(Index));
