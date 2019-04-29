@@ -23,6 +23,7 @@ import KeysIcon from 'mdi-material-ui/DotsVertical';
 import PathIcon from 'mdi-material-ui/MapMarkerPath';
 import CallbackIcon from 'mdi-material-ui/UndoVariant';
 import ChangeLogIcon from 'mdi-material-ui/FileCompare';
+import MapIcon from 'mdi-material-ui/TransitionMasked';
 import withLayout from '../lib/withLayout';
 import markdown from '../jss/markdown';
 import { styles as drawerStyles } from '../components/drawer';
@@ -135,6 +136,12 @@ function SideContent(props) {
             <OmitIcon />
           </ListItemIcon>
           <ListItemText inset primary="omitDeep" />
+        </ListItemLink>
+        <ListItemLink href="#mapdeep">
+          <ListItemIcon>
+            <MapIcon />
+          </ListItemIcon>
+          <ListItemText inset primary="mapDeep" />
         </ListItemLink>
         <ListItemLink href="#reducedeep">
           <ListItemIcon>
