@@ -8,8 +8,24 @@ const markdown = {
     // },
   },
   markdown: {
+    '&>*': {
+      padding: [[0, 15, 0, 48]],
+    },
     '& li code:first-of-type': {
       fontWeight: 'bold',
+    },
+    '& details': {
+      paddingTop: 10,
+      paddingBottom: 10,
+      borderTop: '1px dashed #CCC',
+      borderBottom: '1px dashed #CCC',
+      '&:hover': {
+        borderColor: '#888',
+      },
+    },
+    '& summary': {
+      cursor: 'pointer',
+      outline: 'none',
     },
     '& blockquote': {
       borderLeft: [['.25em', 'solid', '#dfe2e5']],
@@ -24,8 +40,8 @@ const markdown = {
     },
     '& pre': {
       display: 'block',
-      width: 'calc(100% + 48px)',
-      marginLeft: '-48px',
+      width: 'auto',
+      // marginLeft: '-48px',
       overflow: 'auto',
       // boxShadow: [[3, 3, 25, '#000'], [0, 0, 20, '#001e36', 'inset']],
       border: [[1, 'solid', '#001e36']],
@@ -69,6 +85,7 @@ const markdown = {
     '& .hljs': {
       background: 'transparent',
       padding: 0,
+      paddingRight: '20px',
       overflow: 'visible',
     },
     '& .hljs-comment': {
