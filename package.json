@@ -2,7 +2,9 @@
   "scripts": {
     "dev": "npm run clear:babel-cache && next",
     "now-build": "next build && next export -o dist",
-    "clear:babel-cache": "rimraf -rf ./node_modules/.cache/babel-loader/*"
+    "clear:babel-cache": "rimraf -rf ./node_modules/.cache/babel-loader/*",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "dependencies": {
     "@engineerapart/nextscript": "^1.0.2",
@@ -36,7 +38,8 @@
     "remark-html": "^9.0.0",
     "remark-react": "^5.0.1",
     "remark-slug": "^5.1.1",
-    "remark-toc": "^5.1.1"
+    "remark-toc": "^5.1.1",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
@@ -54,5 +57,6 @@
     "mocha": "^6.1.4",
     "nyc": "^14.1.0",
     "prettier": "^1.17.0"
-  }
+  },
+  "snyk": true
 }
