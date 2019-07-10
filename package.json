@@ -21,7 +21,7 @@
     "js-cookie": "^2.2.0",
     "jsdom": "^13.2.0",
     "jss": "^10.0.0-alpha.16",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.12",
     "mdi-material-ui": "^5.11.0",
     "next": "^7.0.3",
     "node-sass": "^4.12.0",
@@ -39,7 +39,7 @@
     "remark-react": "^5.0.1",
     "remark-slug": "^5.1.1",
     "remark-toc": "^5.1.1",
-    "snyk": "^1.190.0"
+    "snyk": "^1.192.4"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
