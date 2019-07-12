@@ -21,7 +21,7 @@
     "js-cookie": "^2.2.0",
     "jsdom": "^13.2.0",
     "jss": "^10.0.0-alpha.16",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.13",
     "mdi-material-ui": "^5.11.0",
     "next": "^7.0.3",
     "node-sass": "^4.12.0",
