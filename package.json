@@ -23,7 +23,7 @@
     "jss": "^10.0.0-alpha.16",
     "lodash": "^4.17.11",
     "mdi-material-ui": "^5.11.0",
-    "next": "^7.0.3",
+    "next": "^9.0.6",
     "node-sass": "^4.12.0",
     "nprogress": "^0.2.0",
     "parse5": "^5.1.0",
