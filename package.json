@@ -39,7 +39,7 @@
     "remark-react": "^5.0.1",
     "remark-slug": "^5.1.2",
     "remark-toc": "^5.1.1",
-    "snyk": "^1.258.1"
+    "snyk": "^1.278.2"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
