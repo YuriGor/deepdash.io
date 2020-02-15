@@ -15,10 +15,14 @@ import CondenseAllIcon from 'mdi-material-ui/ArrowCollapseAll';
 import EachDeepIcon from 'mdi-material-ui/FileTree';
 import ExistsIcon from 'mdi-material-ui/HelpNetworkOutline';
 import FilterIcon from 'mdi-material-ui/FilterOutline';
+import FindIcon from 'mdi-material-ui/SelectSearch';
+import FindValueIcon from 'mdi-material-ui/LayersSearchOutline';
+import FindPathIcon from 'mdi-material-ui/MapSearchOutline';
 import IndexIcon from 'mdi-material-ui/FormatListBulleted';
 import PickIcon from 'mdi-material-ui/PlaylistPlus';
 import OmitIcon from 'mdi-material-ui/PlaylistRemove';
 import ReduceIcon from 'mdi-material-ui/DebugStepInto';
+import SomeIcon from 'mdi-material-ui/BeakerQuestionOutline';
 import KeysIcon from 'mdi-material-ui/DotsVertical';
 import PathIcon from 'mdi-material-ui/MapMarkerPath';
 import CallbackIcon from 'mdi-material-ui/UndoVariant';
@@ -113,6 +117,24 @@ function SideContent(props) {
           </ListItemIcon>
           <ListItemText inset primary="filterDeep" />
         </ListItemLink>
+        <ListItemLink href="#finddeep">
+          <ListItemIcon>
+            <FindIcon />
+          </ListItemIcon>
+          <ListItemText inset primary="findDeep" />
+        </ListItemLink>
+        <ListItemLink href="#findvaluedeep">
+          <ListItemIcon>
+            <FindValueIcon />
+          </ListItemIcon>
+          <ListItemText inset primary="findValueDeep" />
+        </ListItemLink>
+        <ListItemLink href="#findpathdeep">
+          <ListItemIcon>
+            <FindPathIcon />
+          </ListItemIcon>
+          <ListItemText inset primary="findPathDeep" />
+        </ListItemLink>
         <ListItemLink href="#index">
           <ListItemIcon>
             <IndexIcon />
@@ -148,6 +170,12 @@ function SideContent(props) {
             <ReduceIcon />
           </ListItemIcon>
           <ListItemText inset primary="reduceDeep" />
+        </ListItemLink>
+        <ListItemLink href="#somedeep">
+          <ListItemIcon>
+            <SomeIcon />
+          </ListItemIcon>
+          <ListItemText inset primary="someDeep" />
         </ListItemLink>
         <ListItemLink href="#pathtostring">
           <ListItemIcon>
