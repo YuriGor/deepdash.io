@@ -24,7 +24,8 @@ class MyApp extends App {
 
   scrollToHash(hash) {
     const me = this;
-    const behavior = hash === undefined ? 'instant' : 'smooth';
+    // const behavior = hash === undefined ? 'instant' : 'smooth';
+    const behavior = 'instant';
     hash = hash || location.hash;
     // console.log('scrollToHash', hash);
     if (hash) {

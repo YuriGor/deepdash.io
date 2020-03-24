@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/styles';
 import classNames from 'classnames';
 import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InstallIcon from 'mdi-material-ui/ArrowDownBoldHexagonOutline';
@@ -28,9 +27,7 @@ import KeysIcon from 'mdi-material-ui/DotsVertical';
 import PathIcon from 'mdi-material-ui/MapMarkerPath';
 import CallbackIcon from 'mdi-material-ui/UndoVariant';
 import ChangeLogIcon from 'mdi-material-ui/FileCompare';
-import MapIcon from 'mdi-material-ui/ArrangeBringToFront';
-import MapValuesIcon from 'mdi-material-ui/TransitionMasked';
-import MapKeysIcon from 'mdi-material-ui/TransitConnection';
+import MapIcon from 'mdi-material-ui/TransitionMasked';
 import withLayout from '../lib/withLayout';
 import markdown from '../jss/markdown';
 import { styles as drawerStyles } from '../components/drawer';
@@ -38,7 +35,7 @@ import ListItemLink from '../components/listItemLink';
 import ListItemNextLink from '../components/listItemNextLink';
 
 const mdMain = preval`
-      module.exports = require('../preval/md')('docs/index');
+      module.exports = require('../preval/md')('docs/v4.6.0');
     `;
 // console.log(mdMain);
 const styles = (theme) => ({
@@ -162,28 +159,12 @@ function SideContent(props) {
           </ListItemIcon>
           <ListItemText inset primary="omitDeep" />
         </ListItemLink>
-
         <ListItemLink href="#mapdeep">
           <ListItemIcon>
             <MapIcon />
           </ListItemIcon>
           <ListItemText inset primary="mapDeep" />
         </ListItemLink>
-
-        <ListItemLink href="#mapvaluesdeep">
-          <ListItemIcon>
-            <MapValuesIcon />
-          </ListItemIcon>
-          <ListItemText inset primary="mapValuesDeep" />
-        </ListItemLink>
-
-        <ListItemLink href="#mapkeysdeep">
-          <ListItemIcon>
-            <MapKeysIcon />
-          </ListItemIcon>
-          <ListItemText inset primary="mapKeysDeep" />
-        </ListItemLink>
-
         <ListItemLink href="#reducedeep">
           <ListItemIcon>
             <ReduceIcon />
@@ -203,7 +184,7 @@ function SideContent(props) {
           <ListItemText inset primary="pathToString" />
         </ListItemLink>
       </List>
-      <ListItemNextLink href="/changelog">
+      <ListItemNextLink href="/changelog#v4-6-0">
         <ListItemIcon>
           <ChangeLogIcon />
         </ListItemIcon>
@@ -216,4 +197,4 @@ SideContent.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 // export default withLayout(withStyles(styles)(Index));
-export default withLayout('/', withStyles(styles)(SideContent), withStyles(styles)(Index));
+export default withLayout('/v4.6.0', withStyles(styles)(SideContent), withStyles(styles)(Index));

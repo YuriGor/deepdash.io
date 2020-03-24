@@ -113,7 +113,7 @@ function drawer(props) {
           </ListItemNextLink>
           <List className={classes.drawerList}>{children}</List>
           <Divider />
-          <ListItem href="#methods">
+          <ListItem>
             <ListItemIcon>
               <ContactIcon />
             </ListItemIcon>

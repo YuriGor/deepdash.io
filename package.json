@@ -15,7 +15,7 @@
     "@zeit/next-sass": "^1.0.1",
     "autoprefixer": "^9.7.3",
     "classnames": "^2.2.6",
-    "deepdash": "^4.5.1",
+    "deepdash": "^5.0.0",
     "highlight.js": "^9.16.2",
     "include-media": "^1.4.9",
     "js-cookie": "^2.2.1",
