@@ -5,7 +5,7 @@ import '../node_modules/highlight.js/styles/nord.css';
 export default () => (
   <header className="logo">
     <Head>
-      <title>Deepdash - traversal extension for Lodash</title>
+      <title>Deepdash - easy search, filter and process deep nested data</title>
       <link rel="icon" type="image/png" href="/favicon.png" />
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
