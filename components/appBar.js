@@ -9,8 +9,8 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 import { withStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
-import GithubIcon from 'mdi-material-ui/GithubCircle';
-import NpmIcon from 'mdi-material-ui/NpmVariantOutline';
+import GithubIcon from 'mdi-material-ui/Github';
+import NpmIcon from 'mdi-material-ui/PackageDown';
 import CdnIcon from 'mdi-material-ui/CloudDownloadOutline';
 
 const styles = (theme) => ({

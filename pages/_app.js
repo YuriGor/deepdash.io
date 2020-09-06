@@ -1,61 +1,57 @@
 import _ from 'lodash';
 import React from 'react';
-import App, { Container } from 'next/app';
+import App from 'next/app';
 import Head from 'next/head';
-import { MuiThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import JssProvider from 'react-jss/lib/JssProvider';
-import getPageContext from '../lib/context';
+import PropTypes from 'prop-types';
+import '../node_modules/highlight.js/styles/nord.css';
+import './app.scss';
 
-class MyApp extends App {
-  constructor() {
-    super();
-    this.pageContext = getPageContext();
-  }
+import theme from '../lib/theme';
 
-  static offset(el) {
-    const rect = el.getBoundingClientRect();
+function offset(el) {
+  const rect = el.getBoundingClientRect();
 
-    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+  const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
 
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
-  }
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
+}
 
-  scrollToHash(hash) {
-    const me = this;
-    // const behavior = hash === undefined ? 'instant' : 'smooth';
-    const behavior = 'instant';
-    hash = hash || location.hash;
-    // console.log('scrollToHash', hash);
-    if (hash) {
-      _.delay(() => {
-        window.requestAnimationFrame(() => {
-          const elem = document.getElementById(hash.substr(1));
-          // console.log('scroll to el:', elem);
-          if (elem) {
-            const off = MyApp.offset(elem);
-            // console.log('offset', off);
-            window.scrollTo({ behavior, top: off.top - 108 });
-            if (hash !== location.hash) {
-              history.pushState(null, '', hash);
-            }
+function scrollToHash(hash) {
+  // const behavior = hash === undefined ? 'instant' : 'smooth';
+  const behavior = 'instant';
+  hash = hash || location.hash;
+  // console.log('scrollToHash', hash);
+  if (hash) {
+    _.delay(() => {
+      window.requestAnimationFrame(() => {
+        const elem = document.getElementById(hash.substr(1));
+        // console.log('scroll to el:', elem);
+        if (elem) {
+          const off = offset(elem);
+          // console.log('offset', off);
+          window.scrollTo({ behavior, top: off.top - 108 });
+          if (hash !== location.hash) {
+            history.pushState(null, '', hash);
           }
-        });
-      }, 10);
-    }
+        }
+      });
+    }, 10);
   }
-
-  componentDidMount() {
-    // console.log('componentDidMount');
+}
+export default function MyApp(props) {
+  const { Component, pageProps } = props;
+  React.useEffect(() => {
     // Remove the server-side injected CSS.
+    const jssStyles = document.querySelector('#jss-server-side');
+    if (jssStyles) {
+      jssStyles.parentElement.removeChild(jssStyles);
+    }
     const root = document.getElementsByTagName('html')[0];
     root.classList.add('mounted');
-    const me = this;
-    const jssStyles = document.querySelector('#jss-server-side');
-    if (jssStyles && jssStyles.parentNode) {
-      jssStyles.parentNode.removeChild(jssStyles);
-    }
+
     document.addEventListener('click', (event) => {
       // console.log('a.click', event.target, event.target.closest('a'));
       const link = event.target.closest('a');
@@ -67,7 +63,7 @@ class MyApp extends App {
             // console.log(`location.${currentHref[0]} === ${href[0]}`);
             event.preventDefault();
             event.stopPropagation();
-            me.scrollToHash.bind(me)(`#${href[1]}`);
+            scrollToHash(`#${href[1]}`);
           } else {
             // console.log(`location.${currentHref[0]} !== ${href[0]}`);
           }
@@ -77,37 +73,29 @@ class MyApp extends App {
     // window.addEventListener('hashchange', (newURL,oldURL) => {
     //   me.scrollToHash.bind(me)()
     // }, false);
-    this.scrollToHash();
-  }
+    scrollToHash();
+  }, []);
 
-  render() {
-    const { Component, pageProps } = this.props;
-    return (
-      <Container>
-        <Head>
-          <title>Deepdash</title>
-        </Head>
-        {/* Wrap every page in Jss and Theme providers */}
-        <JssProvider
-          registry={this.pageContext.sheetsRegistry}
-          generateClassName={this.pageContext.generateClassName}
-        >
-          {/* MuiThemeProvider makes the theme available down the React
-              tree thanks to React context. */}
-          <MuiThemeProvider
-            theme={this.pageContext.theme}
-            sheetsManager={this.pageContext.sheetsManager}
-          >
-            {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-            <CssBaseline />
-            {/* Pass pageContext to the _document though the renderPage enhancer
-                to render collected styles on server-side. */}
-            <Component pageContext={this.pageContext} {...pageProps} />
-          </MuiThemeProvider>
-        </JssProvider>
-      </Container>
-    );
-  }
+  return (
+    <>
+      <Head>
+        {/* Use minimum-scale=1 to enable GPU rasterization */}
+        <meta
+          name="viewport"
+          content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
+        />
+        <title>Deepdash</title>
+      </Head>
+
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </>
+  );
 }
 
-export default MyApp;
+MyApp.propTypes = {
+  Component: PropTypes.elementType.isRequired,
+  pageProps: PropTypes.object.isRequired,
+};

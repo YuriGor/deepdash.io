@@ -2,7 +2,7 @@
 // import Link from 'next/link';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/styles';
+import { withStyles } from '@material-ui/core/styles';
 import classNames from 'classnames';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -10,6 +10,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InstallIcon from 'mdi-material-ui/ArrowDownBoldHexagonOutline';
 import UseIcon from '@material-ui/icons/PlayCircleOutline';
+import TestTubeIcon from 'mdi-material-ui/FlaskOutline';
 import FuncIcon from 'mdi-material-ui/FunctionVariant';
 import CondenseIcon from 'mdi-material-ui/ArrowCollapseHorizontal';
 import CondenseAllIcon from 'mdi-material-ui/ArrowCollapseAll';
@@ -86,128 +87,134 @@ function SideContent(props) {
           <ListItemIcon>
             <CondenseIcon />
           </ListItemIcon>
-          <ListItemText inset primary="condense" />
+          <ListItemText primary="condense" />
         </ListItemLink>
         <ListItemLink href="#condensedeep">
           <ListItemIcon>
             <CondenseAllIcon />
           </ListItemIcon>
-          <ListItemText inset primary="condenseDeep" />
+          <ListItemText primary="condenseDeep" />
         </ListItemLink>
         <ListItemLink href="#eachdeep-foreachdeep">
           <ListItemIcon>
             <EachDeepIcon />
           </ListItemIcon>
-          <ListItemText inset primary="(for)eachDeep" />
+          <ListItemText primary="(for)eachDeep" />
         </ListItemLink>
         <List className={classes.nestedList}>
           <ListItemLink href="#iteratee">
             <ListItemIcon>
               <CallbackIcon />
             </ListItemIcon>
-            <ListItemText inset primary="iteratee" />
+            <ListItemText primary="iteratee" />
           </ListItemLink>
         </List>
         <ListItemLink href="#exists">
           <ListItemIcon>
             <ExistsIcon />
           </ListItemIcon>
-          <ListItemText inset primary="exists" />
+          <ListItemText primary="exists" />
         </ListItemLink>
         <ListItemLink href="#filterdeep">
           <ListItemIcon>
             <FilterIcon />
           </ListItemIcon>
-          <ListItemText inset primary="filterDeep" />
+          <ListItemText primary="filterDeep" />
         </ListItemLink>
         <ListItemLink href="#finddeep">
           <ListItemIcon>
             <FindIcon />
           </ListItemIcon>
-          <ListItemText inset primary="findDeep" />
+          <ListItemText primary="findDeep" />
         </ListItemLink>
         <ListItemLink href="#findvaluedeep">
           <ListItemIcon>
             <FindValueIcon />
           </ListItemIcon>
-          <ListItemText inset primary="findValueDeep" />
+          <ListItemText primary="findValueDeep" />
         </ListItemLink>
         <ListItemLink href="#findpathdeep">
           <ListItemIcon>
             <FindPathIcon />
           </ListItemIcon>
-          <ListItemText inset primary="findPathDeep" />
+          <ListItemText primary="findPathDeep" />
         </ListItemLink>
         <ListItemLink href="#index">
           <ListItemIcon>
             <IndexIcon />
           </ListItemIcon>
-          <ListItemText inset primary="index" />
+          <ListItemText primary="index" />
         </ListItemLink>
         <ListItemLink href="#paths-keysdeep">
           <ListItemIcon>
             <KeysIcon />
           </ListItemIcon>
-          <ListItemText inset primary="paths(keysDeep)" />
+          <ListItemText primary="paths(keysDeep)" />
         </ListItemLink>
         <ListItemLink href="#pickdeep">
           <ListItemIcon>
             <PickIcon />
           </ListItemIcon>
-          <ListItemText inset primary="pickDeep" />
+          <ListItemText primary="pickDeep" />
         </ListItemLink>
         <ListItemLink href="#omitdeep">
           <ListItemIcon>
             <OmitIcon />
           </ListItemIcon>
-          <ListItemText inset primary="omitDeep" />
+          <ListItemText primary="omitDeep" />
         </ListItemLink>
 
         <ListItemLink href="#mapdeep">
           <ListItemIcon>
             <MapIcon />
           </ListItemIcon>
-          <ListItemText inset primary="mapDeep" />
+          <ListItemText primary="mapDeep" />
         </ListItemLink>
 
         <ListItemLink href="#mapvaluesdeep">
           <ListItemIcon>
             <MapValuesIcon />
           </ListItemIcon>
-          <ListItemText inset primary="mapValuesDeep" />
+          <ListItemText primary="mapValuesDeep" />
         </ListItemLink>
 
         <ListItemLink href="#mapkeysdeep">
           <ListItemIcon>
             <MapKeysIcon />
           </ListItemIcon>
-          <ListItemText inset primary="mapKeysDeep" />
+          <ListItemText primary="mapKeysDeep" />
         </ListItemLink>
 
         <ListItemLink href="#reducedeep">
           <ListItemIcon>
             <ReduceIcon />
           </ListItemIcon>
-          <ListItemText inset primary="reduceDeep" />
+          <ListItemText primary="reduceDeep" />
         </ListItemLink>
         <ListItemLink href="#somedeep">
           <ListItemIcon>
             <SomeIcon />
           </ListItemIcon>
-          <ListItemText inset primary="someDeep" />
+          <ListItemText primary="someDeep" />
         </ListItemLink>
         <ListItemLink href="#pathtostring">
           <ListItemIcon>
             <PathIcon />
           </ListItemIcon>
-          <ListItemText inset primary="pathToString" />
+          <ListItemText primary="pathToString" />
         </ListItemLink>
       </List>
+      {/* <ListItemNextLink href="/lab">
+        <ListItemIcon>
+          <TestTubeIcon />
+        </ListItemIcon>
+        <ListItemText primary="Test Lab" />
+      </ListItemNextLink> */}
       <ListItemNextLink href="/changelog">
         <ListItemIcon>
           <ChangeLogIcon />
         </ListItemIcon>
-        <ListItemText inset primary="Change Log" />
+        <ListItemText primary="Change Log" />
       </ListItemNextLink>
     </>
   );
@@ -216,4 +223,7 @@ SideContent.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 // export default withLayout(withStyles(styles)(Index));
-export default withLayout('/', withStyles(styles)(SideContent), withStyles(styles)(Index));
+const res = withLayout('/', withStyles(styles)(SideContent), withStyles(styles)(Index));
+// console.log(res);
+
+export default res;

@@ -1,4 +1,28 @@
 {
-  "presets": ["next/babel"],
-  "plugins": ["preval"]
+    "env": {
+      "development": {
+        "plugins": ["preval",
+          [
+            "babel-plugin-styled-components",
+            { "ssr": true, "displayName": true, "preprocess": false }
+          ]
+        ],
+        "presets": ["next/babel"]
+      },
+      "production": {
+        "plugins": ["preval",
+          [
+            "babel-plugin-styled-components",
+            { "ssr": true, "displayName": true, "preprocess": false }
+          ]
+        ],
+        "presets": ["next/babel"]
+      }
+    },
+    "plugins": ["preval",
+      [
+        "babel-plugin-styled-components",
+        { "ssr": true, "displayName": true, "preprocess": false }
+      ]
+    ]
 }

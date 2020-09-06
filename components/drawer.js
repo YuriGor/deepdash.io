@@ -1,3 +1,4 @@
+// import './drawer.scss';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -11,10 +12,10 @@ import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import ContactIcon from 'mdi-material-ui/Message';
 import ChatIcon from 'mdi-material-ui/Forum';
-import GithubIcon from 'mdi-material-ui/GithubCircle';
-import GithubAltIcon from 'mdi-material-ui/GithubBox';
+import GithubIcon from 'mdi-material-ui/Github';
+import GithubAltIcon from 'mdi-material-ui/WebBox';
 import EmailIcon from 'mdi-material-ui/EmailOutline';
-import TwitterIcon from 'mdi-material-ui/TwitterCircle';
+import TwitterIcon from 'mdi-material-ui/Twitter';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 // import Select from '@material-ui/core/Select';
 import NativeSelect from '@material-ui/core/NativeSelect';
@@ -41,6 +42,7 @@ const stylesPrivate = (theme) => ({
     boxShadow: '0px 0px 15px rgba(0,0,0,1)',
     opacity: 0.95,
     zIndex: theme.zIndex.drawer,
+
     [theme.breakpoints.up('sm')]: {
       opacity: 1,
     },
@@ -109,7 +111,7 @@ function drawer(props) {
             <ListItemIcon>
               <DocsIcon />
             </ListItemIcon>
-            <ListItemText inset primary="Docs" />
+            <ListItemText primary="Docs" />
           </ListItemNextLink>
           <List className={classes.drawerList}>{children}</List>
           <Divider />
@@ -124,31 +126,31 @@ function drawer(props) {
               <ListItemIcon>
                 <ChatIcon />
               </ListItemIcon>
-              <ListItemText inset primary="Chat" />
+              <ListItemText primary="Chat" />
             </ListItemLink>
             <ListItemLink href="https://github.com/YuriGor/deepdash/issues">
               <ListItemIcon>
                 <GithubIcon />
               </ListItemIcon>
-              <ListItemText inset primary="Deepdash" />
+              <ListItemText primary="Deepdash" />
             </ListItemLink>
             <ListItemLink href="https://github.com/YuriGor/deepdash.io/issues">
               <ListItemIcon>
                 <GithubAltIcon />
               </ListItemIcon>
-              <ListItemText inset primary="Site" />
+              <ListItemText primary="Site" />
             </ListItemLink>
             <ListItemLink href="https://twitter.com/gor_yuri">
               <ListItemIcon>
                 <TwitterIcon />
               </ListItemIcon>
-              <ListItemText inset primary="Twitter" />
+              <ListItemText primary="Twitter" />
             </ListItemLink>
             <ListItemLink href="http://yurigor.com/contact-me/">
               <ListItemIcon>
                 <EmailIcon />
               </ListItemIcon>
-              <ListItemText inset primary="Message" />
+              <ListItemText primary="Message" />
             </ListItemLink>
           </List>
         </>
